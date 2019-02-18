@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="join"><h2>Login To 7Adriin</h2></div>
+        <form class="form-signin">
+            <div class="slogo"><img src="assets/img/slogo.png" /></div>
+            <div class="social-box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn facebookbtn" (click)="onFacebookLoginClick();">
+                            <i class="fa fa-facebook" ></i>    Continue with Facebook
+                        </button>
+                        <a href="#" class="btn googlebtn">
+                            <i class="fa fa-google-plus" ></i>    Continue with Google
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="line"><span>OR</span></div>
+            <div class="main">
+
+                <input type="text" class="form-control" [(ngModel)]="email" name="email" placeholder="Email / Username" autofocus required>
+                <input type="password" class="form-control" placeholder="Password" [(ngModel)]="password" name="password" required>
+                <button class="btn continuebtn" (click)="userLogin()">LOGIN</button>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6"><input type="checkbox" checked="false" [(ngModel)]="chkRememberMe" name="rememberMe" id="rememberMe"/><label>Remeber Me</label></div>
+                    <div class="col-xs-6 col-md-6"><a class="pull-right" href="javascript:void(0)" routerLink="/forget-password">Forgot Password</a></div>
+                </div>
+                    <span class="clearfix"></span>
+                </div>
+            <div class="login-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        Not a member yet? <a href="javascript:void(0)"  routerLink="/register">Join now</a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<app-footer></app-footer>

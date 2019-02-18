@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+      <div class="join"><h2>Verify To 7Adriin</h2></div>
+      <form class="form-signin">
+          <div class="slogo"><img src="assets/img/slogo.png" /></div>
+          <div class="main">
+              <form #formVerification="ngForm" >
+              <input type="text" class="form-control" placeholder="Enter Verification Code" required [(ngModel)]="verification_code" name="verification_code">
+              <button class="btn continuebtn" 
+              (click)="verifyUser();" [disabled]="!formVerification.valid">Verify</button>
+              <span class="clearfix"></span>
+          </form>
+          </div>
+         
+      </form>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SevenAdriin</title>
+  <base href="/">
+  <!--<script>document.write('<base href="' + document.location + '" />');</script>-->
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+
+    <!-- Web Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin' rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,600,700|Raleway:300,400,500,600,700|Crete+Round:400italic" rel="stylesheet" type="text/css" />
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic%7CRoboto:400,700%7CDroid+Serif" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700,900" rel="stylesheet">
+
+    <!-- CSS Global Compulsory -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/component.css" rel="stylesheet" />
+    <link href="assets/css/rtlcss.css" rel="stylesheet" />
+    <link href="assets/css/animate.css" rel="stylesheet" />
+    <link href="assets/fonts/css/font-awesome.css" rel="stylesheet" />
+    <link href="assets/js/carousel/css/carouselstyles.css" rel="stylesheet" />
+    <link href="assets/js/rs-slider/css/settings.css" rel="stylesheet" />
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/smoothScroll.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/carousel/carousel-slider.js"></script>
+    <script src="assets/js/rs-slider/jquery.themepunch.tools.min.js"></script>
+    <script src="assets/js/rs-slider/jquery.themepunch.revolution.js"></script>
+  
+    <script src="assets/js/one.app.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/revolution-slider.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/cbpHorizontalMenu.min.js"></script>
+    
+    <script type="text/javascript" src="assets/js/fbsdk_new.js"></script>
+</head>
+<body id="body" data-spy="scroll" data-target=".header" data-offset-top="150">
+ 
+  <app-root></app-root>
+  <div class="scroll-to-up">
+      <div class="scrollup">
+          <span class="fa fa-angle-up"></span>
+      </div>
+  </div>
+  <!-- JS Implementing Plugins -->
+  
+
+  <script>
+      jQuery(document).ready(function () {
+         
+          new WOW().init();
+      });
+  </script>
+
+  
+  <script>
+      $(function () {
+          $('.profin-circle').on('click', function () {
+              //debugger;
+              $('.profin-circle.btn-info').removeClass('btn-info').addClass('btn-default');
+              $(this).addClass('btn-info').removeClass('btn-default').blur();
+          });
+
+          $('.next-step, .prev-step').on('click', function (e) {
+              var $activeTab = $('.tab-pane.active');
+//debugger;
+              $('.profin-circle.btn-info').removeClass('btn-info').addClass('btn-default');
+
+              if ($(e.target).hasClass('next-step')) {
+                  var nextTab = $activeTab.next('.tab-pane').attr('id');
+                  $('[href="#' + nextTab + '"]').addClass('btn-info').removeClass('btn-default');
+                  $('[href="#' + nextTab + '"]').tab('show');
+              }
+              else {
+                  var prevTab = $activeTab.prev('.tab-pane').attr('id');
+                  $('[href="#' + prevTab + '"]').addClass('btn-info').removeClass('btn-default');
+                  $('[href="#' + prevTab + '"]').tab('show');
+              }
+          });
+      });
+  </script>
+</body>
+</html>

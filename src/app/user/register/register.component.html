@@ -1,0 +1,70 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="join"><h2>Join To 7Adriin</h2></div>
+        <form class="form-signin">
+            <div class="slogo"><img src="assets/img/slogo.png" /></div>
+            <div class="social-box">
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn facebookbtn" (click)="onFacebookLoginClick();">
+                            <i class="fa fa-facebook" ></i>    Continue with Facebook
+                        </button>
+                        <a href="#" class="btn googlebtn">
+                            <i class="fa fa-google-plus" ></i>    Continue with Google
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="line"><span>OR</span></div>
+            
+                 
+                            <div class="container">
+                                
+                                    <div class="proinfo">
+                                        <div class="proinfo-row nav nav-tabs">
+                                            <div class="proinfo-step">
+                                                <button type="button" class="btn btn-info profin-circle" data-toggle="tab" href="#menu1" (click)="setUserType('0')">1</button>
+                                                <p>Register As Freelancer</p>
+                                            </div>
+                                            <div class="proinfo-step">
+                                                <button type="button" class="btn btn-default profin-circle" data-toggle="tab" href="#menu1" (click)="setUserType('1')">2</button>
+                                                <p>Register As Employer</p>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="tab-content">
+                                            
+                                        <div id="menu1" class="tab-pane fade active in">
+                                                <div class="main">
+                                                <form #formSignUp="ngForm" >
+                                                        <input type="email" class="form-control" placeholder="Email" autofocus [(ngModel)]="email" name="email" [email]="true">
+                                                        <input type="text" class="form-control" placeholder="Username" required [(ngModel)]="userName" name="userName">
+                                                        <input type="password" class="form-control" placeholder="Password" required [(ngModel)]="password" name="password">
+                                                        <button class="btn continuebtn" 
+                                                        (click)="userSignUp();" [disabled]="!formSignUp.valid">SIGN UP</button>
+                                        
+                                                        By joining I agree to receive emails from 7Adriin.
+                                                        <span class="clearfix"></span>
+                                                    </form>
+                                                </div>
+                                        </div>
+                                    
+                                    </div>
+                               
+                            </div>
+                          
+           
+            <div class="login-footer">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        Already a member? <a href="javascript:void(0)"  (click)="userSignIn();">Sign in now</a>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,60 @@
+<app-header></app-header>
+<div>
+  <div class="container">
+      <div class="col-md-12">
+          <div class="proinfo">
+              <div class="proinfo-row nav nav-tabs">
+                  <div class="proinfo-step">
+                      <button type="button" class="btn btn-info profin-circle" data-toggle="tab" href="#menu1">1</button>
+                      <p>Personal Info</p>
+                  </div>
+                  <div class="proinfo-step">
+                      <button type="button" class="btn btn-default profin-circle" data-toggle="tab" href="#menu2">2</button>
+                      <p>Professional Info</p>
+                  </div>
+                  <div class="proinfo-step">
+                      <button type="button" class="btn btn-default profin-circle" data-toggle="tab" href="#menu3">3</button>
+                      <p>Lined Accounts</p>
+                  </div>
+
+                  <div class="proinfo-step">
+                      <button type="button" class="btn btn-default profin-circle" data-toggle="tab" href="#menu4">4</button>
+                      <p>Account Security</p>
+                  </div>
+              </div>
+          </div>
+          <div class="tab-content">
+              <div id="menu1" class="tab-pane fade active in">
+                  <app-personal-info></app-personal-info>
+                  <ul class="list-unstyled list-inline pull-right">
+                      <li><button type="button" class="btn btn-info next-step">Continue</button></li>
+                  </ul>
+              </div>
+              <div id="menu2" class="tab-pane fade">
+                  <app-professional-info></app-professional-info>
+                  <ul class="list-unstyled list-inline pull-right">
+                      <li><button type="button" class="btn btn-default prev-step"><i class="fa fa-chevron-left"></i> Back</button></li>
+                      <li><button type="button" class="btn btn-info next-step">Next <i class="fa fa-chevron-right"></i></button></li>
+                  </ul>
+              </div>
+              <div id="menu3" class="tab-pane fade">
+                  <app-linked-accounts></app-linked-accounts>
+                  <ul class="list-unstyled list-inline pull-right">
+                      <li><button type="button" class="btn btn-default prev-step"><i class="fa fa-chevron-left"></i> Back</button></li>
+                      <li><button type="button" class="btn btn-info next-step">Next <i class="fa fa-chevron-right"></i></button></li>
+                  </ul>
+              </div>
+
+              <div id="menu4" class="tab-pane fade">
+                  <app-account-security></app-account-security>
+                  <ul class="list-unstyled list-inline pull-right">
+                      <li><button type="button" class="btn btn-default prev-step"><i class="fa fa-chevron-left"></i> Back</button></li>
+                      <li><button type="button" class="btn btn-success"><i class="fa fa-check"></i> Done!</button></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+<app-footer></app-footer>
