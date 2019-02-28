@@ -82,7 +82,7 @@ import { VerifyCompleteComponent } from './user/verify-complete/verify-complete.
         BootstrapModalModule, DatepickerModule, ConfirmModule,
         SelectModule, MultiselectDropdownModule, NgNotifyPopup
   ],
- // providers: [{ provide: APP_BASE_HREF, useValue: '/' }, UserService, SharedService],
+ //providers: [{ provide: APP_BASE_HREF, useValue: '/' }, UserService, SharedService],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, UserService, SharedService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],

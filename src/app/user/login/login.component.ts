@@ -87,7 +87,6 @@ userLoginResponse(result: any): void {
         this.sharedServiceObj.setLoginStatus(true);
         this.router.navigate(['dashboard']);
       }  else if (result.memberCredentials.verified === '0') {
-        //debugger;
         this.selectedCountry = result.memberCredentials.country;
         this.selectedCountryResidence = result.memberCredentials.country_residence;
         this.phone_number_verify = result.memberCredentials.phone_mobile;
@@ -97,7 +96,6 @@ userLoginResponse(result: any): void {
       }
     }
   } else {
-    //debugger;
     this.email = '';
     this.password = '';
     this.userLogginMsg = result.message;

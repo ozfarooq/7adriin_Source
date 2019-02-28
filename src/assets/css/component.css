@@ -48,7 +48,7 @@
 .cbprow{border-top:1px solid #ccc; border-bottom:1px solid #ccc; width:100%; padding:0px;}
 /* sub-menu */
 .cbp-hrmenu .cbp-hrsub {
-	display: none;
+    /*display: none;*/
 	position: absolute;
     background: #fff;
     border: 1px #e5e5e5 solid;

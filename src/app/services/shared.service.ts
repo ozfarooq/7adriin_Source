@@ -11,7 +11,9 @@ export class SharedService {
   public searchListingEmitter: EventEmitter<String>;
   public isLoggedInEmitter: EventEmitter<Boolean>;
   public removeHeaderModalEmitter: EventEmitter<String>;
-  public apiBaseUrl = 'https://stagingapi.7adriin.com/api/';
+  public apiBaseUrl = 'https://www.staginggafah.com/webapi/api/';
+  //public apiBaseUrl = 'https://stagingapi.7adriin.com/api/';
+  //public apiBaseUrl = 'http://localhost:1234/sevenAdriin/';
   public defaultNoImage= 'assets/images/noImage.png';
   private headers: Headers= new Headers();
    private headerOptions: RequestOptions= new RequestOptions();

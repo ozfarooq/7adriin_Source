@@ -15,13 +15,13 @@
                         <a href="#" class="logohome"></a>
                     </div>
 
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" *ngIf="!userLoggedIn">
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="#">how it works</a></li>
-                            <li *ngIf="!userLoggedIn"><a href="javascript:void(0)" routerLink="/login">login</a></li>
-                            <li *ngIf="!userLoggedIn"><a href="javascript:void(0)"  routerLink="/register">sign up</a></li>
+                            <li><a href="javascript:void(0)" routerLink="/login">login</a></li>
+                            <li><a href="javascript:void(0)"  routerLink="/register">sign up</a></li>
                             
-                            <li *ngIf="!userLoggedIn"><a href="javascript:void(0)" routerLink="/create-project" class="otcbtn" >POST A PROJECT</a></li>
+                            <li><a href="javascript:void(0)" routerLink="/create-project" class="otcbtn" >POST A PROJECT</a></li>
                         </ul>
 
                     </div><!-- /.navbar-collapse -->
@@ -85,7 +85,7 @@
                     <div class="container" *ngIf="urlToUse=='login'">
                         <a href="javascript:void(0)" class="logocls"></a>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="javascript:void(0)"  routerLink="/register">Become a Seller</a></li>
+                            <!--<li><a href="javascript:void(0)"  routerLink="/register">Become a Seller</a></li>-->
                             
                             <li><a href="javascript:void(0)" routerLink="/login">Sign In</a></li>
                             <li><a href="javascript:void(0)"  routerLink="/register" class="otcbtn1">Join</a></li>
@@ -95,7 +95,7 @@
                     <div class="container" *ngIf="urlToUse!='login'&&urlToUse!='home'">
                             <a href="#" class="logocls"></a>
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="javascript:void(0)"  routerLink="/register">Become a Seller</a></li>
+                                <!--<li><a href="javascript:void(0)"  routerLink="/register">Become a Seller</a></li>-->
                                 <li class="messages-trigger js-mark" *ngIf="userLoggedIn==true">
                                     <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Messages</a>
                                     <section class="dropdown-menu hidden-xs">
@@ -107,6 +107,33 @@
 
 
                                                     <figure>
+                                                        <span class="user-pict-55"><img src="assets/img/profile-photo.jpg" alt="ryangillam" width="55" height="55"></span>
+                                                    </figure>
+                                                    <div class="content">
+                                                        <p class="text-long"><strong>ryangillam</strong>: "Sorry. That was the wrong file. This is it."</p>
+                                                        <footer>
+                                                            <time>1 year ago</time>
+                                                            <span class="sub-category">Articles &nbsp; Blog Posts</span> &nbsp; <span class="fa fa-arrow-circle-right"></span>
+                                                        </footer>
+                                                    </div>
+                                                </li>
+                                                <li class="notification-block">
+                                                    <a href="#"></a>
+
+                                                    <figure>
+                                                        <span class="user-pict-55"><img src="assets/img/boy.jpg" alt="jamilkawsher2" width="55" height="55"></span>
+                                                    </figure>
+                                                    <div class="content">
+                                                        <p><strong>jamilkawsher2 delivered</strong> your order.</p>
+                                                        <footer>
+                                                            <time>1 year ago</time>
+                                                            <span class="sub-category">SEO</span> &nbsp; <span class="fa fa-arrow-circle-right"></span>
+                                                        </footer>
+                                                    </div>
+                                                </li>
+                                                <li class="notification-block">
+                                                    <a href="#"></a>
+                                                    <figure>
                                                         <span class="user-pict-55"><img src="assets/img/girl.png" alt="ryangillam" width="55" height="55"></span>
                                                     </figure>
                                                     <div class="content">
@@ -133,37 +160,6 @@
                                                 </li>
                                                 <li class="notification-block">
                                                     <a href="#"></a>
-
-
-                                                    <figure>
-                                                        <span class="user-pict-55"><img src="assets/img/girl.png" alt="ryangillam" width="55" height="55"></span>
-                                                    </figure>
-                                                    <div class="content">
-                                                        <p class="text-long"><strong>ryangillam</strong>: "Sorry. That was the wrong file. This is it."</p>
-                                                        <footer>
-                                                            <time>1 year ago</time>
-                                                            <span class="sub-category">Articles &nbsp; Blog Posts</span> &nbsp; <span class="fa fa-arrow-circle-right"></span>
-                                                        </footer>
-                                                    </div>
-                                                </li>
-                                                <li class="notification-block">
-                                                    <a href="#"></a>
-
-                                                    <figure>
-                                                        <span class="user-pict-55"><img src="assets/img/boy.jpg" alt="jamilkawsher2" width="55" height="55"></span>
-                                                    </figure>
-                                                    <div class="content">
-                                                        <p><strong>jamilkawsher2 delivered</strong> your order.</p>
-                                                        <footer>
-                                                            <time>1 year ago</time>
-                                                            <span class="sub-category">SEO</span> &nbsp; <span class="fa fa-arrow-circle-right"></span>
-                                                        </footer>
-                                                    </div>
-                                                </li>
-                                                <li class="notification-block">
-                                                    <a href="#"></a>
-
-
                                                     <figure>
                                                         <span class="user-pict-55"><img src="assets/img/girl.png" alt="ryangillam" width="55" height="55"></span>
                                                     </figure>
@@ -265,8 +261,8 @@
                                 <li *ngIf="userLoggedIn==true"><a href="javascript:void(0)">Order</a></li>
                                 <li *ngIf="userLoggedIn==true">
                                     <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <span class="topuserpic"><img alt="" src="assets/img/girl.png" /></span>
-                                        <span class="useronline-status online"></span>
+                                        <span class="topuserpic"><img alt="" src="assets/img/profile-photo.jpg" /></span>
+                                        <span class="useronline-status offline"></span>
                                     </a>
                                     <ul class="dropdown-menu">
                                         <li><a href="javascript:void(0)" routerLink="/my-profile">My Profile</a></li>
@@ -287,7 +283,24 @@
                         <div class="container">
                             <nav id="cbp-hrmenu" class="cbp-hrmenu">
                                 <ul>
-                                    <li>
+                                        <li *ngFor="let category of allCategoryList" (click)="filterSubCategories(category.id)">
+                                                <a href="javascript:void(0)">{{category.name}} <i class="fa fa-angle-down"></i> </a>
+                                                <div class="cbp-hrsub" id="cat_{{category.id}}" style="display:none;">
+                                                    <div class="cbp-hrsub-inner">
+                                                        <div>
+                                                            <ul>
+                                                                <li><a href="javascript:void(0)" *ngFor="let subCategory of filteredSubCategoryList" routerLink="/project-listing">{{subCategory.name}}</a></li>
+                                                                <!--<li><a href="javascript:void(0)" routerLink="/project-listing">Snoopydoo</a></li>
+                                                                <li><a href="javascript:void(0)" routerLink="/project-listing">Fallen Angel</a></li>
+                                                                <li><a href="javascript:void(0)" routerLink="/project-listing">Sui Maker</a></li>
+                                                                <li><a href="javascript:void(0)" routerLink="/project-listing">Wave Master</a></li>
+                                                                <li><a href="javascript:void(0)" routerLink="/project-listing">Golf Pro</a></li>-->
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                    <!--<li>
                                         <a href="javascript:void(0)">Graphics & Design <i class="fa fa-angle-down"></i> </a>
                                         <div class="cbp-hrsub">
                                             <div class="cbp-hrsub-inner">
@@ -321,8 +334,8 @@
                                                         <li><a href="javascript:void(0)" routerLink="/project-listing">Moneymaker</a></li>
                                                     </ul>
                                                 </div>
-                                            </div><!-- /cbp-hrsub-inner -->
-                                        </div><!-- /cbp-hrsub -->
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">Digital Marketing <i class="fa fa-angle-down"></i></a>
@@ -359,8 +372,8 @@
                                                         <li><a href="javascript:void(0)" routerLink="/project-listing">Golf Pro</a></li>
                                                     </ul>
                                                 </div>
-                                            </div><!-- /cbp-hrsub-inner -->
-                                        </div><!-- /cbp-hrsub -->
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">Writing & Translation <i class="fa fa-angle-down"></i></a>
@@ -390,8 +403,8 @@
                                                         <li><a  href="javascript:void(0)" routerLink="/project-listing">Moneymaker</a></li>
                                                     </ul>
                                                 </div>
-                                            </div><!-- /cbp-hrsub-inner -->
-                                        </div><!-- /cbp-hrsub -->
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">Video & Animation <i class="fa fa-angle-down"></i></a>
@@ -421,8 +434,8 @@
                                                         <li><a  href="javascript:void(0)" routerLink="/project-listing">Coolkid</a></li>
                                                     </ul>
                                                 </div>
-                                            </div><!-- /cbp-hrsub-inner -->
-                                        </div><!-- /cbp-hrsub -->
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">Music & Audio <i class="fa fa-angle-down"></i></a>
@@ -456,8 +469,8 @@
                                                         <li><a  href="javascript:void(0)" routerLink="/project-listing">Golf Pro</a></li>
                                                     </ul>
                                                 </div>
-                                            </div><!-- /cbp-hrsub-inner -->
-                                        </div><!-- /cbp-hrsub -->
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">Programming & Tech <i class="fa fa-angle-down"></i></a>
@@ -491,8 +504,8 @@
                                                         <li><a  href="javascript:void(0)" routerLink="/project-listing">Golf Pro</a></li>
                                                     </ul>
                                                 </div>
-                                            </div><!-- /cbp-hrsub-inner -->
-                                        </div><!-- /cbp-hrsub -->
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">Business <i class="fa fa-angle-down"></i></a>
@@ -526,8 +539,8 @@
                                                         <li><a  href="javascript:void(0)" routerLink="/project-listing">Golf Pro</a></li>
                                                     </ul>
                                                 </div>
-                                            </div><!-- /cbp-hrsub-inner -->
-                                        </div><!-- /cbp-hrsub -->
+                                            </div>
+                                        </div>
                                     </li>
                                     <li>
                                         <a href="javascript:void(0)">Fun & Lifestyle <i class="fa fa-angle-down"></i></a>
@@ -561,9 +574,9 @@
                                                         <li><a  href="javascript:void(0)" routerLink="/project-listing">Golf Pro</a></li>
                                                     </ul>
                                                 </div>
-                                            </div><!-- /cbp-hrsub-inner -->
-                                        </div><!-- /cbp-hrsub -->
-                                    </li>
+                                            </div>
+                                        </div>
+                                    </li>-->
                                 </ul>
                             </nav>
                         </div>

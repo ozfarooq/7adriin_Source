@@ -2986,7 +2986,9 @@ input[type="button"] {
     .useronline-status.online {
         background: #1dbf73;
     }
-
+    .useronline-status.offline {
+        background: #d80505;
+    }
 
 
 .notification-arow {

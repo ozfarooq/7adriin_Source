@@ -25,6 +25,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   public urlToUse= '';
   public userType= '';
   public userLoggedIn= false;
+  public allCategoryList: any[] = [];
+  public allSubCategoryList: any[] = [];
+  public filteredSubCategoryList: any[] = [];
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
     private userServiceObj: UserService, private sharedServiceObj: SharedService,
@@ -34,6 +37,8 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.setLoginInitialStatus();
+    this.loadAllCategories();
+    this.loadAllAvailableSubCategories();
     }
     ngAfterViewInit() {
     this.loadHeaderSubMenu();
@@ -46,6 +51,46 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   }
   registerUser(type: string) {
     this.router.navigate(['register']);
+  }
+  loadAllCategories() {
+    //debugger;
+    this.userServiceObj.loadAllCategories()
+    .subscribe((result) => this.loadAllCategoriesResp(result));
+  }
+  loadAllCategoriesResp(result: any): void {
+    //debugger;
+    if ( result.status === true) {
+      this.allCategoryList = result.results;
+      //debugger;
+    } else {
+      this.allCategoryList = [];
+    }
+    //debugger;
+  }
+  loadAllAvailableSubCategories() {
+    //debugger;
+    this.userServiceObj.loadAllAvailableSubCategories()
+    .subscribe((result) => this.loadAllAvailableSubCategoriesResp(result));
+  }
+  loadAllAvailableSubCategoriesResp(result: any): void {
+    //debugger;
+    if ( result.status === true) {
+      this.allSubCategoryList = result.results;
+      //debugger;
+    } else {
+      this.allSubCategoryList = [];
+    }
+  }
+  filterSubCategories(cat_Id: any) {
+    this.filteredSubCategoryList = this.allSubCategoryList.filter(
+      category => category.cat_id === cat_Id);
+      this.allCategoryList.forEach(element => {
+        document.getElementById( 'cat_' + element.id).style.display = 'none';
+      });
+      if (this.filterSubCategories.length > 0 ) {
+       document.getElementById( 'cat_' + cat_Id).style.display = 'block';
+      }
+      //debugger;
   }
   setLoginStatus(item: any): void {
     //debugger;
@@ -75,6 +120,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
        this.localStorageService.remove('userType');
        this.localStorageService.remove('loggedInUserInfo');
        this.localStorageService.remove('fbAuthResp');
+       this.localStorageService.remove('loggedId');
        this.userLoggedIn = false;
        this.sharedServiceObj.setLoginStatus(false);
        FB.getLoginStatus(response => {
