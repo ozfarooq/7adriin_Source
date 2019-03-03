@@ -106,7 +106,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.userType = '0';
     }
     if (this.urlToUse === 'home') {
-    this.router.navigate(['admin']);
+    this.router.navigate(['dashboard']);
     }
       }else {
     this.userLoggedIn = false;

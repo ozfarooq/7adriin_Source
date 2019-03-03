@@ -29,6 +29,14 @@ this.headerOptions = new RequestOptions({ headers: this.headers });
  public setLoginStatus(loginStatus: boolean) {
      this.isLoggedInEmitter.emit(loginStatus);
  }
+ public getAllCountries() {
+  const data = new URLSearchParams();
+  const countriesListResp = this.http
+    .post(this.apiBaseUrl + 'members/getAllCountries', data,
+    this.headerOptions)
+    .map(this.extractData);
+  return countriesListResp;
+ }
   // this could also be a private method of the component class
 private extractData(res: Response) {
 return res.json();

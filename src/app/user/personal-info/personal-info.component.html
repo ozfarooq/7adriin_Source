@@ -1,3 +1,4 @@
+<form class="form-personalInfo" #formPersonalInfo="ngForm">
 <div class="infocanvas">
   <header class="step-header">
       <h1>Personal Info</h1>
@@ -12,32 +13,83 @@
       <div class="field-content">
           <div class="full-name">
               <div class="full-name-inputs">
-                  <input type="text" name="first_name" class="first-name" value="waqas" maxlength="35" placeholder="First Name">
-                  <input type="text" name="last_name" class="last-name" value="khan" maxlength="35" placeholder="Last Name">
+                  <input type="text" name="first_name" [(ngModel)]="first_name" class="first-name" maxlength="35" placeholder="First Name" required>
+                  <input type="text" name="last_name" [(ngModel)]="last_name" class="last-name" maxlength="35" placeholder="Last Name" required>
               </div>
           </div>
       </div>
   </div>
   <div class="info-field profile-image">
-      <aside><h3>Profile Picture*</h3></aside>
-      <div class="field-content">
-          <section class="profile-photo">
-              <div class="user-profile-image">
-                  <label class="user-pict user-pict-undefined editable" for="profile_image">
-                      <input type="file" accept="image/png,image/jpeg" class="hidden" id="profile_image" name="profile[image]"><img src="../img/fre3.jpg" class="user-pict-img" alt="">
-                  </label>
-              </div>
-          </section>
-      </div>
-  </div>
+    <aside><h3>Profile Picture*</h3></aside>
+    <div class="field-content">
+        <section class="profile-photo">
+            <div class="user-profile-image">
+                <label class="user-pict user-pict-undefined editable" for="profile_image">
+                    <input type="file" accept="image/png,image/jpeg" class="hidden" id="profile_image" name="profile[image]"><img src="../img/fre3.jpg" class="user-pict-img" alt="">
+                </label>
+            </div>
+        </section>
+    </div>
+</div>
+<div class="info-field ">
+    <aside>
+        <h3>Country*</h3>
+    </aside>
+    <div class="field-content">
+        <div class="inner-row occupation">
+            <div class="occupation-field">
+                <select class="" [(ngModel)]="selectedCountry" name="selectedCountry" required>
+                        <option *ngFor="let country of allCountryCodes" value={{country.name}}>{{country.name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="info-field ">
+    <aside>
+        <h3>Residence Country*</h3>
+    </aside>
+    <div class="field-content">
+        <div class="inner-row occupation">
+            <div class="occupation-field">
+                <select class="" [(ngModel)]="selectedResidencyCountry" name="selectedResidencyCountry" required>
+                        <option *ngFor="let country of allCountryCodes" value="{{country.name}}">{{country.name}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="info-field">
+    <aside><h3>Contact Number *</h3></aside>
+    <div class="field-content">
+        <div class="full-name-inputs">
+            <input type="text" name="contact_number" [(ngModel)]="contact_number"
+             placeholder="Contact Number" required >
+        </div>
+    </div>
+</div>
+<div class="info-field">
+    <aside><h3>Home Address *</h3></aside>
+    <div class="field-content">
+        <div class="full-name-inputs">
+            <input type="text" name="home_address" [(ngModel)]="home_address" placeholder="Home Address" required>
+        </div>
+    </div>
+</div>
+<div class="info-field">
+    <aside><h3>Age *</h3></aside>
+    <div class="field-content">
+        <div class="full-name-inputs">
+            <input type="text" name="age" [(ngModel)]="age" placeholder="Age" required>
+        </div>
+    </div>
+</div>
+  
   <div class="info-field">
       <aside><h3>Description*</h3></aside>
       <div class="field-content">
           <div class="inner-row description">
-              <textarea placeholder="">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-              <div>
-                  <span>min. 150 characters</span><span class="char-count">445 / 600</span>
-              </div>
+              <textarea placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." [(ngModel)]="description" name="description" required></textarea>
           </div>
       </div>
   </div>
@@ -52,12 +104,12 @@
 
                           <label class="checkcontainer">
                               English
-                              <input type="radio" checked="checked" name="radio">
+                              <input type="radio" [ngModel]="language_selected" checked="checked" name="language" value="English">
                               <span class="radiobtn"></span>
                           </label>
                           <label class="checkcontainer">
                               Arabic
-                              <input type="radio" name="radio">
+                              <input type="radio" [ngModel]="language_selected" name="language" value="Arabic">
                               <span class="radiobtn"></span>
                           </label>
 
@@ -68,4 +120,9 @@
           </div>
       </div>
   </div>
+        
 </div>
+<ul class="list-unstyled list-inline pull-right">
+        <li><button type="button" class="btn btn-info next-step" [disabled]="!formPersonalInfo.valid" (click)="savePersonalInfo()">Continue</button></li>
+    </ul>
+</form>
