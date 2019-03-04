@@ -9,7 +9,7 @@ import { Router, CanActivate, RouterModule, ActivatedRoute } from '@angular/rout
 import { LocalStorageService } from 'angular-2-local-storage';
 import {NgProgressService} from 'ng2-progressbar';
 import { DialogService } from 'ng2-bootstrap-modal';
-import { NotificationService } from 'ng2-notify-popup';
+//import { NotificationService } from 'ng2-notify-popup';
 import { SimpleSearchComponent } from '../simple-search/simple-search.component';
 
 import { SharedService } from '../../services/shared.service';
@@ -18,8 +18,7 @@ declare const FB: any;
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
-  providers: [NotificationService]
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   public email = '';
@@ -55,7 +54,7 @@ export class LoginComponent implements OnInit {
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
     private userServiceObj: UserService, private sharedServiceObj: SharedService,
-    private url: LocationStrategy, private dialogService: DialogService, private notify: NotificationService) { }
+    private url: LocationStrategy, private dialogService: DialogService) { }
 
   ngOnInit() {
   }
@@ -91,7 +90,7 @@ userLoginResponse(result: any): void {
         this.selectedCountryResidence = result.memberCredentials.country_residence;
         this.phone_number_verify = result.memberCredentials.phone_mobile;
         this.master_id = result.memberCredentials.master_id;
-        this.notify.show( 'YOUR ACCOUNT HAS NOT BEEN VERIFIED.', { position: 'top', duration: '2000', type: 'error' });
+        //this.notify.show( 'YOUR ACCOUNT HAS NOT BEEN VERIFIED.', { position: 'top', duration: '2000', type: 'error' });
         this.router.navigate(['verify']);
       }
     }
@@ -103,7 +102,7 @@ userLoginResponse(result: any): void {
     this.localStorageService.remove('userType');
     this.localStorageService.remove('loggedInUserInfo');
     this.userLoggedId = false;
-    this.notify.show( result.message.toUpperCase(), { position: 'top', duration: '2000', type: 'error' });
+    //this.notify.show( result.message.toUpperCase(), { position: 'top', duration: '2000', type: 'error' });
   }
 
 }

@@ -8,13 +8,10 @@ import { HttpModule } from '@angular/http';
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { NgProgressModule } from 'ng2-progressbar';
 import {NgxPaginationModule} from 'ngx-pagination';
-import {SelectModule} from 'ng2-select-compat';
-import { DatepickerModule } from 'angular2-material-datepicker';
 import {ConfirmModule} from 'angular2-bootstrap-confirm';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
-import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
-import { NgNotifyPopup } from 'ng2-notify-popup';
+//import { NgNotifyPopup } from 'ng2-notify-popup';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -79,8 +76,7 @@ import { VerifyCompleteComponent } from './user/verify-complete/verify-complete.
             prefix: 'SevenAdriin',
             storageType: 'localStorage'
         }), NgxPaginationModule, NgProgressModule, Ng4GeoautocompleteModule.forRoot(),
-        BootstrapModalModule, DatepickerModule, ConfirmModule,
-        SelectModule, MultiselectDropdownModule, NgNotifyPopup
+        BootstrapModalModule, ConfirmModule
   ],
  //providers: [{ provide: APP_BASE_HREF, useValue: '/' }, UserService, SharedService],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, UserService, SharedService],

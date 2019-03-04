@@ -9,7 +9,7 @@ import { Router, CanActivate, RouterModule, ActivatedRoute } from '@angular/rout
 import { LocalStorageService } from 'angular-2-local-storage';
 import {NgProgressService} from 'ng2-progressbar';
 import { DialogService } from 'ng2-bootstrap-modal';
-import { NotificationService } from 'ng2-notify-popup';
+//import { NotificationService } from 'ng2-notify-popup';
 import { SimpleSearchComponent } from '../simple-search/simple-search.component';
 
 import { SharedService } from '../../services/shared.service';
@@ -18,8 +18,7 @@ declare const FB: any;
 @Component({
   selector: 'app-personal-info',
   templateUrl: './personal-info.component.html',
-  styleUrls: ['./personal-info.component.css'],
-  providers: [NotificationService]
+  styleUrls: ['./personal-info.component.css']
 })
 export class PersonalInfoComponent implements OnInit {
   public allCountryCodes: any[] = [];
@@ -36,7 +35,7 @@ export class PersonalInfoComponent implements OnInit {
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
     private userServiceObj: UserService, private sharedServiceObj: SharedService,
-    private url: LocationStrategy, private dialogService: DialogService, private notify: NotificationService) { }
+    private url: LocationStrategy, private dialogService: DialogService) { }
 
   ngOnInit() {
     this.loadAllCountries();
