@@ -11,7 +11,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {ConfirmModule} from 'angular2-bootstrap-confirm';
 import { LocalStorageModule } from 'angular-2-local-storage';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
-//import { NgNotifyPopup } from 'ng2-notify-popup';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

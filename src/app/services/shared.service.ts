@@ -10,6 +10,7 @@ import 'rxjs/add/operator/toPromise';
 export class SharedService {
   public searchListingEmitter: EventEmitter<String>;
   public isLoggedInEmitter: EventEmitter<Boolean>;
+  public languageEmitter: EventEmitter<String>;
   public removeHeaderModalEmitter: EventEmitter<String>;
   public apiBaseUrl = 'https://www.staginggafah.com/webapi/api/';
   //public apiBaseUrl = 'https://stagingapi.7adriin.com/api/';
@@ -21,6 +22,7 @@ export class SharedService {
 this.searchListingEmitter = new EventEmitter();
 this.isLoggedInEmitter = new EventEmitter();
 this.removeHeaderModalEmitter = new EventEmitter();
+this.languageEmitter = new EventEmitter();
 this.headerOptions = new RequestOptions({ headers: this.headers });
   }
  public searchListing() {
@@ -29,6 +31,10 @@ this.headerOptions = new RequestOptions({ headers: this.headers });
  public setLoginStatus(loginStatus: boolean) {
      this.isLoggedInEmitter.emit(loginStatus);
  }
+ public changeSelectedLanguage(selectedLanguage: string) {
+   //debugger;
+  this.languageEmitter.emit(selectedLanguage);
+}
  public getAllCountries() {
   const data = new URLSearchParams();
   const countriesListResp = this.http
