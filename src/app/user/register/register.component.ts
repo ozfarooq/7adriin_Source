@@ -9,7 +9,7 @@ import { Router, CanActivate, RouterModule, ActivatedRoute } from '@angular/rout
 import { LocalStorageService } from 'angular-2-local-storage';
 import {NgProgressService} from 'ng2-progressbar';
 import { DialogService } from 'ng2-bootstrap-modal';
-import { NotificationService } from 'ng2-notify-popup';
+//import { NotificationService } from 'ng2-notify-popup';
 import { SimpleSearchComponent } from '../simple-search/simple-search.component';
 
 import { SharedService } from '../../services/shared.service';
@@ -19,8 +19,7 @@ declare const FB: any;
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
-  providers: [NotificationService]
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
   public email = '';
@@ -62,7 +61,7 @@ export class RegisterComponent implements OnInit {
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
     private userServiceObj: UserService, private sharedServiceObj: SharedService,
-    private url: LocationStrategy, private dialogService: DialogService, private notify: NotificationService) {
+    private url: LocationStrategy, private dialogService: DialogService) {
      /* this._routeParams.params.subscribe(params => {
         this.userType = params['userType'];
         //debugger;
@@ -117,7 +116,7 @@ this.userType = userTypeSelected;
 
       if (!this.fbSignUp) {
         // this.master_id = result.memberCredentials.master_id;
-        this.notify.show( this.userSignUpMsg.toUpperCase(), { position: 'top', duration: '2000', type: 'success' });
+        //this.notify.show( this.userSignUpMsg.toUpperCase(), { position: 'top', duration: '2000', type: 'success' });
         this.router.navigate(['verify']);
       }
 
@@ -125,7 +124,7 @@ this.userType = userTypeSelected;
     } else {
       this.userCreated = true;
       this.userSignUpMsg = result.message.toUpperCase();
-      this.notify.show( result.message.toUpperCase(), { position: 'top', duration: '2000', type: 'error' });
+      //this.notify.show( result.message.toUpperCase(), { position: 'top', duration: '2000', type: 'error' });
       /*let alert = this.alertCtrl.create({
         title: 'Error',
         subTitle: this.userSignUpMsg,

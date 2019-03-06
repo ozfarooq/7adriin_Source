@@ -114,7 +114,11 @@
                     </ul>
                 </div>
                 <div class="col-md-2">
-                    <select><option>English</option><option>Arabic</option></select>
+                        <select [(ngModel)]="selectedLanguage" name="selectedLanguage" (ngModelChange)="changeSelectedLanguage($event)">
+                                <option value='1'>English</option>
+                                <option value='2'>Arabic</option>
+                        </select>
+                    <!--<select><option>English</option><option>Arabic</option></select>-->
                 </div>
             </div>
         </div>

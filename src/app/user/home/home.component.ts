@@ -21,7 +21,7 @@ declare const cbpHorizontalMenu: any;
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
@@ -29,6 +29,13 @@ export class HomeComponent implements OnInit {
     private url: LocationStrategy, private dialogService: DialogService) { }
 
   ngOnInit() {
+    //debugger;
+    if (this.localStorageService.get('loggedId') !== null) {
+      const loggedIn = this.localStorageService.get('loggedId').toString();
+      this.router.navigate(['dashboard']);
+    }
   }
-
+  ngAfterViewInit() {
+    
+  }
 }

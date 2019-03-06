@@ -10,8 +10,11 @@ import 'rxjs/add/operator/toPromise';
 export class SharedService {
   public searchListingEmitter: EventEmitter<String>;
   public isLoggedInEmitter: EventEmitter<Boolean>;
+  public languageEmitter: EventEmitter<String>;
   public removeHeaderModalEmitter: EventEmitter<String>;
-  public apiBaseUrl = 'https://stagingapi.7adriin.com/api/';
+  public apiBaseUrl = 'https://www.staginggafah.com/webapi/api/';
+  //public apiBaseUrl = 'https://stagingapi.7adriin.com/api/';
+  //public apiBaseUrl = 'http://localhost:1234/sevenAdriin/';
   public defaultNoImage= 'assets/images/noImage.png';
   private headers: Headers= new Headers();
    private headerOptions: RequestOptions= new RequestOptions();
@@ -19,6 +22,7 @@ export class SharedService {
 this.searchListingEmitter = new EventEmitter();
 this.isLoggedInEmitter = new EventEmitter();
 this.removeHeaderModalEmitter = new EventEmitter();
+this.languageEmitter = new EventEmitter();
 this.headerOptions = new RequestOptions({ headers: this.headers });
   }
  public searchListing() {
@@ -26,6 +30,18 @@ this.headerOptions = new RequestOptions({ headers: this.headers });
  }
  public setLoginStatus(loginStatus: boolean) {
      this.isLoggedInEmitter.emit(loginStatus);
+ }
+ public changeSelectedLanguage(selectedLanguage: string) {
+   //debugger;
+  this.languageEmitter.emit(selectedLanguage);
+}
+ public getAllCountries() {
+  const data = new URLSearchParams();
+  const countriesListResp = this.http
+    .post(this.apiBaseUrl + 'members/getAllCountries', data,
+    this.headerOptions)
+    .map(this.extractData);
+  return countriesListResp;
  }
   // this could also be a private method of the component class
 private extractData(res: Response) {

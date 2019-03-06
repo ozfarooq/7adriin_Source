@@ -156,6 +156,28 @@ export class UserService {
        .map(this.extractData);
      return memberInfo;
    }
+   savePersonalInfo(first_name: string, last_name: string, selectedCountry: string, selectedResidencyCountry: string,
+    contact_number: string, home_address: string, age: string, image_url: string,
+    description: string, language_selected: string) {
+      let url = '';
+      url = this.sharedServiceObj.apiBaseUrl + 'members/updatePersonalInfo';
+      const data = new URLSearchParams();
+      data.append('first_name', first_name);
+      data.append('last_name', last_name);
+      data.append('selectedCountry', selectedCountry);
+      data.append('selectedResidencyCountry', selectedResidencyCountry);
+
+      data.append('contact_number', contact_number);
+      data.append('home_address', home_address);
+      data.append('age', age);
+      data.append('image_url', image_url);
+      data.append('description', description);
+      data.append('language_selected', language_selected);
+      const updatePersonalInfo = this.http
+        .post(url, data, this.headerOptions)
+        .map(this.extractData);
+      return updatePersonalInfo;
+   }
    getUserAdditionalInfo(master_id: string) {
      let url = '';
      const data = new URLSearchParams();
@@ -183,7 +205,7 @@ export class UserService {
      return verificationInfogResp;
    }
    confirmVerificationCode(verification_code: string) {
-     debugger;
+     //debugger;
      const data = new URLSearchParams();
      data.append('verification_code', verification_code);
      const verificationInfogResp = this.http
@@ -263,6 +285,30 @@ export class UserService {
        .map(this.extractData);
      return accountUpdatingResp;
    }
+   loadAllCategories() {
+    const data = new URLSearchParams();
+    const categoryResp = this.http
+      .post(this.sharedServiceObj.apiBaseUrl + 'members/viewAllCategories', data,
+      this.headerOptions)
+      .map(this.extractData);
+    return categoryResp;
+  }
+  loadAllSubCategories() {
+    const data = new URLSearchParams();
+    const subCategoryResp = this.http
+      .post(this.sharedServiceObj.apiBaseUrl + 'members/viewAllSubCategories', data,
+      this.headerOptions)
+      .map(this.extractData);
+    return subCategoryResp;
+  }
+  loadAllAvailableSubCategories() {
+    const data = new URLSearchParams();
+    const subCategoryResp = this.http
+      .post(this.sharedServiceObj.apiBaseUrl + 'members/viewAllAvailableSubCategories', data,
+      this.headerOptions)
+      .map(this.extractData);
+    return subCategoryResp;
+  }
    loadCountryCodes() {
      const data = new URLSearchParams();
      const countryCodesResp = this.http

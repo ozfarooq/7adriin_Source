@@ -21,7 +21,7 @@ declare const FB: any;
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-
+public selectedLanguage= '1';
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
     private userServiceObj: UserService, private sharedServiceObj: SharedService,
@@ -31,5 +31,8 @@ export class FooterComponent implements OnInit {
   }
 loadContentPage() {
   this.router.navigate(['content']);
+}
+changeSelectedLanguage(e: any) {
+this.sharedServiceObj.changeSelectedLanguage(this.selectedLanguage);
 }
 }

@@ -28,6 +28,10 @@ export class DashboardComponent implements OnInit {
     private url: LocationStrategy, private dialogService: DialogService) { }
 
   ngOnInit() {
+    if (this.localStorageService.get('loggedId') == null) {
+      //const loggedIn = this.localStorageService.get('loggedId').toString();
+      this.router.navigate(['home']);
+    }
   }
 
 }
