@@ -3280,7 +3280,7 @@ input[type="button"] {
 .prosearch {padding:0px;}
 .problock{width:100%; display:block; padding:10px; background:#fff; border:1px solid #eee; border-radius:4px; margin-bottom:15px; position:relative; }
 .problock:hover{background:#F9F9F9; box-shadow: 0 0 4px 0 rgba(0,0,0,.08), 0 2px 4px 0 rgba(0,0,0,.12);}
-.problock h1{color:#60bbe7; font-size:22px; text-align:left; font-weight:600;}
+.problock h1{color:#028c6a; font-size:22px; text-align:left; font-weight:600;}
 .problock .lbl{color:#656565; font-size:13px; text-align:left; font-weight:500; line-height:40px;}
 .problock .userdesc {color:#656565; font-size:13px; text-align:left; font-weight:normal; font-family:'Open Sans', arial; }
 .problock .tag{padding-top:15px;}
@@ -3544,6 +3544,8 @@ input[type="button"] {
 }
 
 
+
+
 @media only screen and (min-width: 900px) {
     .seller-onboarding .infocanvas {
         padding-top: 40px;
@@ -3563,12 +3565,14 @@ input[type="button"] {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
-    margin: 35px 0 96px;
+    margin: 15px 0;
 }
 .occupation .occupation-field select {
     width: 32%;
     float:left;
 }
+  #personalinfo .field-content input{width:32%;}
+  #personalinfo .field-content textarea{width:50%;}
 }
 
 .occupation .occupation-field:first-child {
@@ -6804,3 +6808,18 @@ body:not(.ismobileortablet) .portfolio-preview ul:after {
 
 .thumbnailcont{margin-right: auto;
     margin-left: auto; display: table; clear:both; }
+
+
+
+
+.btn-info,.btn-success {
+  color: #fff;
+  background-color: #028c6a !important;
+  border-color: #028c6a !important;
+}
+
+.btn-info:hover {
+  color: #fff;
+  background-color: #003E19 !important;
+  border-color: #003E19 !important;
+}

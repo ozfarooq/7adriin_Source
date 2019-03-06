@@ -3569,6 +3569,7 @@ input[type="button"] {
 }
 
 
+
 @media only screen and (min-width: 900px) {
     .seller-onboarding .infocanvas {
         padding-top: 40px;
@@ -3588,12 +3589,14 @@ input[type="button"] {
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;
-    margin: 35px 0 96px;
+    margin: 15px 0;
 }
 .occupation .occupation-field select {
     width: 32%;
 
 }
+  #personalinfo .field-content input{width:32%;}
+  #personalinfo .field-content textarea{width:50%;}
 }
 
 .occupation .occupation-field:first-child {
@@ -6878,4 +6881,7 @@ body:not(.ismobileortablet) .portfolio-preview ul:after {
     color: #fff;
     background-color: #003E19 !important;
     border-color: #003E19 !important;
+}
+.pull-right {
+  float: left !important;
 }
