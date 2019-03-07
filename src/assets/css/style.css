@@ -176,10 +176,9 @@ input {
     overflow: hidden;
     transform-origin: 0;
     position: absolute;
-    height: 100%;
     background: #d1ede1; /* Old browsers */
     z-index: -9;
-    background-image:url(../img/topheaderbg.png);
+    background-image:url(../img/topheaderbg.jpg);
     background-repeat:no-repeat;
     background-position:center;
     background-size:cover;
@@ -774,9 +773,10 @@ input {
 
 .category {
     background: #fff;
-    padding: 2px;
-    margin: 5px;
+    padding: 0px;
+    margin: 10px;
     border: 1px solid #ccc;
+  border-radius:8px;
 }
 
     .category .imgblck {
@@ -784,25 +784,36 @@ input {
         height: auto;
     }
 
-    .category .catetitle {
-        font-size: 16px;
+.category .imgblck img {
+  max-width: 250px;
+  height: 300px;
+  border-radius:8px;
+}
+
+.category .imgblck img:hover{opacity:8.5;}
+
+.category .catetitle a {
+        font-size: 22px;
         font-family: 'Open Sans';
-        line-height: 18px;
-        color: #333;
+        line-height: 28px;
+        color: #fff;
         text-align: left;
-        font-weight: 400;
-        margin-top: 10px;
+        font-weight: 600;
+        top: 30px;
         padding: 5px 10px 5px 10px;
+        position:absolute;
     }
 
     .category .text {
         font-size: 14px;
         font-family: 'Open Sans';
         line-height: 18px;
-        color: #333;
+        color: #fff;
         text-align: left;
         font-weight: 300;
         padding: 5px 10px 5px 10px;
+      position:absolute;
+      bottom:20px;
     }
 
 
@@ -815,9 +826,68 @@ input {
         font-weight: 400;
     }
 
+#myteam{padding: 100px 0px; display:block; text-align:center; background:#fff;}
+#myteam h2 {
+  color: #333;
+  font-size: 30px;
+  position: relative;
+  padding-bottom: 50px;
+  font-family: 'Open Sans', Arial, sans-serif;
+  text-align: center;
+  font-weight: 900;
+  text-transform: uppercase;
+}
 
+#myteam .tmblock{
+  height:150px;
+  width:auto;
+  text-align:center;
+  background:#fff;
+  border-radius:2px;
+  padding:20px 10px;
+  display:flex;
+  align-items: center;
+  box-shadow: 0 1px 6px rgba(57,73,76,.35);
+  text-decoration: none;
+  margin:15px 0;
+  display:block;
+}
+#myteam .tmblock:hover{
+  box-shadow: 0 1px 12px rgba(57,73,76,.35);
+  text-decoration: none;
+}
+#myteam .tmicon{
+  width:64px;
+  height:64px;
+  margin: 10px auto;
+}
+#myteam .tmtxt{
+  font-size:16px;
+  color: #656565!important;
+  text-align: center;
+  font-weight:500;
+  line-height:24px;
+}
 
+#myteam .seeall {
+  background-color: #028c6a;
+  border-radius: 30px;
+  padding: 10px 35px;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: auto;
+  margin: 40px auto;
+  border: none;
+}
 
+#myteam .seeall:hover {
+  background: #003E19;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+}
 /* --------- Casousel Slider categories ---------- */
 .owl-carousel-6 .item {
     margin: 0px;
@@ -825,7 +895,7 @@ input {
 
 
 #process {
-    background-color: #e8bf1c;
+    background-color: #028c6a;
     background-image: url('../img/cloudBg.png');
     background-repeat: no-repeat;
     background-position: bottom;
@@ -837,7 +907,7 @@ input {
 }
 
     #process h2 {
-        color: #333;
+        color: #fff;
         font-size: 30px;
         position: relative;
         padding-bottom: 10px;
@@ -851,19 +921,21 @@ input {
         background-color: transparent;
         border-radius: 30px;
         padding: 10px 35px;
-        color: #333;
+        color: #fff;
         font-size: 16px;
         text-transform: uppercase;
         font-weight: 600;
         width: auto;
         margin: 40px auto;
-        border: 2px solid #333;
+        border: 2px solid #fff;
     }
 
         #process .btngetstarted:hover {
             background-color: #fff;
             text-decoration: none;
             cursor: pointer;
+          color:#028c6a;
+          border:2px solid #fff;
         }
 
     #process .wcircle {
@@ -883,7 +955,7 @@ input {
     }
 
     #process p {
-        color: #1a1a1a;
+        color: #fff;
         font-size: 16px;
         text-align: center;
         font-family: 'Open Sans';
