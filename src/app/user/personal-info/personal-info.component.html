@@ -1,5 +1,5 @@
 <form class="form-personalInfo" #formPersonalInfo="ngForm">
-<div class="infocanvas">
+<div class="infocanvas" id="personalinfo">
   <header class="step-header">
       <h1>Personal Info</h1>
       <p>Tell us a bit about yourself. This information will appear on your public profile, so that potential buyers can get to know you better.</p><small>* Mandatory fields</small>
@@ -72,7 +72,7 @@
   <div class="info-field">
     <aside><h3>Contact Number *</h3></aside>
     <div class="field-content">
-        <div class="full-name-inputs">
+        <div class="inner-row occupation">
             <input type="text" name="contact_number" [(ngModel)]="contact_number"
              placeholder="Contact Number" required >
         </div>
@@ -108,10 +108,7 @@
       <aside><h3>Languages*</h3></aside>
       <div class="field-content">
           <div class="inner-row languages">
-              <table>
 
-                  <tr>
-                      <td>
 
                           <label class="checkcontainer">
                               English
@@ -124,10 +121,7 @@
                               <span class="radiobtn"></span>
                           </label>
 
-                      </td>
 
-                  </tr>
-              </table>
           </div>
       </div>
   </div>

@@ -846,7 +846,11 @@ input {
         font-weight: 400;
     }
 
+<<<<<<< HEAD
 #myteam{padding: 50px 0px; display:block; text-align:center; background:#fff;}
+=======
+#myteam{padding: 100px 0px; display:block; text-align:center; background:#fff;}
+>>>>>>> 3b5e7ab7bce122055eb64d013790fecbdd13d656
 #myteam h2 {
   color: #333;
   font-size: 30px;
