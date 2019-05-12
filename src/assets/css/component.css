@@ -32,7 +32,7 @@
 }
 
 .cbp-hrmenu > ul > li > a:hover {
-	color: #47a3da;
+	color: #028c6a;
 }
 
 .cbp-hrmenu > ul > li.cbp-hropen a {
@@ -43,12 +43,12 @@
 	color: #60bbe7;
 }
     .cbp-hrmenu > ul > li.cbp-hropen a:active, .cbp-hrmenu > ul > li.cbp-hropen a:focus{
-        border-bottom: 2px solid #60bbe7;
+        border-bottom: 2px solid #028c6a;
     }
 .cbprow{border-top:1px solid #ccc; border-bottom:1px solid #ccc; width:100%; padding:0px;}
 /* sub-menu */
 .cbp-hrmenu .cbp-hrsub {
-    /*display: none;*/
+  display: none;
 	position: absolute;
     background: #fff;
     border: 1px #e5e5e5 solid;
@@ -61,7 +61,7 @@
 }
 
 .cbp-hrmenu .cbp-hrsub-inner > div {
-	width: 33%;
+	width: 100%;
 	float: left;
 	padding: 0 2em 0;
 }
@@ -78,6 +78,14 @@
 
 .cbp-hrmenu .cbp-hrsub-inner > div a {
 	line-height: 2em;
+  color: #333;
+  display: block;
+}
+
+.cbp-hrmenu .cbp-hrsub-inner > div a:hover {
+  line-height: 2em;
+  color: #028c6a;
+  display: inline-block;
 }
 
 .cbp-hrsub h4 {

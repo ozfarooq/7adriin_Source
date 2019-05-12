@@ -1,70 +1,130 @@
 <app-header></app-header>
+
+<!--<div id="myteam">
+  <div class="container">
+  <div>
+    <h2>Choose Your Best Team</h2>
+  </div>
+
+  <div>
+    <div class="col-md-3"> <a href="">
+      <div class="tmblock">
+        <div class="tmicon"><img alt="web" src="../assets/img/tm-icon-web.png"></div>
+        <div class="tmtxt">Web Developers</div>
+      </div>
+    </a>
+    </div>
+    <div class="col-md-3">
+      <div class="tmblock">
+        <div class="tmicon"><img alt="web" src="../assets/img/tm-icon-mobile.png"></div>
+        <div class="tmtxt">Mobile Developers</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="tmblock">
+        <div class="tmicon"><img alt="design" src="../assets/img/tm-icon-design.png"></div>
+        <div class="tmtxt">Graphics Designers</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="tmblock">
+        <div class="tmicon"><img alt="web" src="../assets/img/tm-icon-writers.png"></div>
+        <div class="tmtxt">Writers and Translaters</div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="col-md-3">
+      <div class="tmblock">
+        <div class="tmicon"><img alt="web" src="../assets/img/tm-icon-social.png"></div>
+        <div class="tmtxt">Social Marketers</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="tmblock">
+      <div class="tmicon"><img alt="web" src="../assets/img/tm-icon-finance.png"></div>
+      <div class="tmtxt">Finance Experts</div>
+    </div></div>
+    <div class="col-md-3">
+      <div class="tmblock">
+        <div class="tmicon"><img alt="video" src="../assets/img/tm-icon-video.png"></div>
+        <div class="tmtxt">Video / Animators</div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="tmblock">
+        <div class="tmicon"><img alt="web" src="../assets/img/tm-icon-3d.png"></div>
+        <div class="tmtxt">3D Modleing</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="clear">&nbsp;</div><br /><br /> <div><span class="seeall">See All</span></div>
+</div>
+</div>
+<div class="clear">&nbsp;</div>-->
+
+
     <!--=== Featured Section ===-->
     <div id="category">
         <div class="fullwidthbanner-container">
             <div class="container">
                 <div class="title wow flipInX animated" data-wow-offset="10" data-wow-duration="1.5s">
                     <h2>Browse The Categories</h2>
-                   
                 </div>
             </div>
             <div>
-                <div class="col-md-12">
-                    <div class="owl-carousel-6">
-                        <div class="item">
-                            <div class="category">
-                                <div class="imgblck"><a href=""><img alt="" src="../assets/img/cat1.png" /></a></div>
-                                <div class="catetitle"><a href="">Website Development</a></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
-                            </div>
+              <div class="col-md-12">
+                <div class="owl-carousel-6">
+                    <div class="item" *ngFor="let category of allCategoryList; let last = last;" (click)="categoryListing(category.id)">
+                        <div class="category" href="javascript:void(0)">
+                            <div class="imgblck"><a><img alt="" [src]="category.image_url" /></a></div>
+                            <div class="catetitle"><a>{{category.name}}</a></div>
+                            <div class="text">{{category.description}}</div>
                         </div>
-                        <div class="item">
-                            <div class="category">
-                                <div class="imgblck"><a href=""><img alt="" src="assets/img/cat2.png" /></a></div>
-                                <div class="catetitle"><a href="">Website Development</a></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="category">
-                                <div class="imgblck"><a href=""><img alt="" src="assets/img/cat3.png" /></a></div>
-                                <div class="catetitle"><a href="">Website Development</a></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="category">
-                                <div class="imgblck"><a href=""><img alt="" src="assets/img/cat4.png" /></a></div>
-                                <div class="catetitle"><a href="">Website Development</a></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="category">
-                                <div class="imgblck"><a href=""><img alt="" src="assets/img/cat2.png" /></a></div>
-                                <div class="catetitle"><a href="">Website Development</a></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="category">
-                                <div class="imgblck"><a href=""><img alt="" src="assets/img/cat3.png" /></a></div>
-                                <div class="catetitle"><a href="">Website Development</a></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="category">
-                                <div class="imgblck"><a href=""><img alt="" src="assets/img/cat4.png" /></a></div>
-                                <div class="catetitle"><a href="">Website Development</a></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
-                            </div>
+                        <div>{{runCarosel()}}</div>
+                    </div>
+                    <!--<div class="item">
+                        <div class="category" href="javascript:void(0)" routerLink="/project-listing">
+                            <div class="imgblck"><a><img alt="" src="assets/img/slid-dev.jpg" /></a></div>
+                            <div class="catetitle"><a>Website Development</a></div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
                         </div>
                     </div>
+                    <div class="item">
+                        <div class="category" href="javascript:void(0)" routerLink="/project-listing">
+                            <div class="imgblck"><a><img alt="" src="assets/img/slid-web.jpg" /></a></div>
+                            <div class="catetitle"><a>Website Design</a></div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="category" href="javascript:void(0)" routerLink="/project-listing">
+                            <div class="imgblck"><a><img alt="" src="assets/img/slid-animate.jpg" /></a></div>
+                            <div class="catetitle"><a>Animation</a></div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="category" href="javascript:void(0)" routerLink="/project-listing">
+                            <div class="imgblck"><a><img alt="" src="assets/img/slid-illustrat.jpg" /></a></div>
+                            <div class="catetitle"><a>Illustration</a></div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="category" href="javascript:void(0)" routerLink="/project-listing">
+                            <div class="imgblck"><a><img alt="" src="assets/img/slid-seo.jpg" /></a></div>
+                            <div class="catetitle"><a>SEO</a></div>
+                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit scelerisque.</div>
+                        </div>
+                    </div>-->
                 </div>
+            </div>
 
             </div>
-            <div style="text-align:center"><button class="btn btncategory">All Categories</button></div>
+            <div style="text-align:center"><button class="btn btncategory" (click)="allCategories()">All Categories</button></div>
         </div>
     </div>
 
@@ -83,193 +143,65 @@
             <div class="clear">&nbsp;</div><br /><br /> <br /><br /><div><span class="btngetstarted">get started</span></div>
         </div>
     </div>
+<div class="clearfix"></div>
 
-    <!--<div id="topfree">
-        
-        <div class="fullwidthbanner-container">
-            <div>
+<div class="ourclients">
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="contTitle">
-                            <h2>Top Freelancers</h2>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="col-md-12">
-                            <div class="owl-carousel-6">
-                                <div class="item">
-                                    <div class="editorpick">
-                                        <div class="imgblck"><a href=""><img alt="" src="assets/img/fre1.jpg" /></a></div>
-                                        <div class="userblock">
-                                            <div class="usertitle"><span><img alt="" src="assets/img/boy.jpg" /></span><a href="" class="title">Waqaskhan</a></div><div class="clearfix"></div>
-                                            <div class="userdesc"><a href=""> I will create unique mindblowing illustration for you in minimum price .</a></div>
-                                            <div class="alincenter"><span><span class="userstar"><img alt="" src="assets/img/star.png" /></span> <span class="colr">5.0</span> <span class="revs">(30)</span></span><span class="usercheck"><img alt="" src="assets/img/check.svg" /> </span></div>
-                                        </div>
-                                        <div class="userfot">
-                                            <div><span><a href="" data-toggle="tooltip" data-placement="right" title="Add to Saved"><i class="fa fa-heart"></i></a></span><span class="pull-right"><span class="start">Starting at </span><span class="price">$150</span></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="editorpick">
-                                        <div class="imgblck"><a href=""><img alt="" src="assets/img/fre2.jpg" /></a></div>
-                                        <div class="userblock">
-                                            <div class="usertitle"><span><img alt="" src="assets/img/boy.jpg" /></span><a href="" class="title">Waqaskhan</a></div><div class="clearfix"></div>
-                                            <div class="userdesc"><a href=""> I will create unique mindblowing illustration for you in minimum price .</a></div>
-                                            <div class="alincenter"><span><span class="userstar"><img alt="" src="assets/img/star.png" /></span> <span class="colr">5.0</span> <span class="revs">(30)</span></span><span class="usercheck"><img alt="" src="assets/img/check.svg" /> </span></div>
-                                        </div>
-                                        <div class="userfot">
-                                            <div><span><a href="" data-toggle="tooltip" data-placement="right" title="Add to Saved"><i class="fa fa-heart"></i></a></span><span class="pull-right"><span class="start">Starting at </span><span class="price">$150</span></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="editorpick">
-                                        <div class="imgblck"><a href=""><img alt="" src="assets/img/fre3.jpg" /></a></div>
-                                        <div class="userblock">
-                                            <div class="usertitle"><span><img alt="" src="assets/img/boy.jpg" /></span><a href="" class="title">Waqaskhan</a></div><div class="clearfix"></div>
-                                            <div class="userdesc"><a href=""> I will create unique mindblowing illustration for you in minimum price .</a></div>
-                                            <div class="alincenter"><span><span class="userstar"><img alt="" src="assets/img/star.png" /></span> <span class="colr">5.0</span> <span class="revs">(30)</span></span><span class="usercheck"><img alt="" src="assets/img/check.svg" /> </span></div>
-                                        </div>
-                                        <div class="userfot">
-                                            <div><span><a href="" data-toggle="tooltip" data-placement="right" title="Add to Saved"><i class="fa fa-heart"></i></a></span><span class="pull-right"><span class="start">Starting at </span><span class="price">$150</span></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="editorpick">
-                                        <div class="imgblck"><a href=""><img alt="" src="assets/img/fre4.jpg" /></a></div>
-                                        <div class="userblock">
-                                            <div class="usertitle"><span><img alt="" src="assets/img/boy.jpg" /></span><a href="" class="title">Waqaskhan</a></div><div class="clearfix"></div>
-                                            <div class="userdesc"><a href=""> I will create unique mindblowing illustration for you in minimum price .</a></div>
-                                            <div class="alincenter"><span><span class="userstar"><img alt="" src="assets/img/star.png" /></span> <span class="colr">5.0</span> <span class="revs">(30)</span></span><span class="usercheck"><img alt="" src="assets/img/check.svg" /> </span></div>
-                                        </div>
-                                        <div class="userfot">
-                                            <div><span><a href="" data-toggle="tooltip" data-placement="right" title="Add to Saved"><i class="fa fa-heart"></i></a></span><span class="pull-right"><span class="start">Starting at </span><span class="price">$150</span></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="editorpick">
-                                        <div class="imgblck"><a href=""><img alt="" src="assets/img/fre5.jpg" /></a></div>
-                                        <div class="userblock">
-                                            <div class="usertitle"><span><img alt="" src="assets/img/boy.jpg" /></span><a href="" class="title">Waqaskhan</a></div><div class="clearfix"></div>
-                                            <div class="userdesc"><a href=""> I will create unique mindblowing illustration for you in minimum price .</a></div>
-                                            <div class="alincenter"><span><span class="userstar"><img alt="" src="assets/img/star.png" /></span> <span class="colr">5.0</span> <span class="revs">(30)</span></span><span class="usercheck"><img alt="" src="assets/img/check.svg" /> </span></div>
-                                        </div>
-                                        <div class="userfot">
-                                            <div><span><a href="" data-toggle="tooltip" data-placement="right" title="Add to Saved"><i class="fa fa-heart"></i></a></span><span class="pull-right"><span class="start">Starting at </span><span class="price">$150</span></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="editorpick">
-                                        <div class="imgblck"><a href=""><img alt="" src="assets/img/fre2.jpg" /></a></div>
-                                        <div class="userblock">
-                                            <div class="usertitle"><span><img alt="" src="assets/img/boy.jpg" /></span><a href="" class="title">Waqaskhan</a></div><div class="clearfix"></div>
-                                            <div class="userdesc"><a href=""> I will create unique mindblowing illustration for you in minimum price .</a></div>
-                                            <div class="alincenter"><span><span class="userstar"><img alt="" src="assets/img/star.png" /></span> <span class="colr">5.0</span> <span class="revs">(30)</span></span><span class="usercheck"><img alt="" src="assets/img/check.svg" /> </span></div>
-                                        </div>
-                                        <div class="userfot">
-                                            <div><span><a href="" data-toggle="tooltip" data-placement="right" title="Add to Saved"><i class="fa fa-heart"></i></a></span><span class="pull-right"><span class="start">Starting at </span><span class="price">$150</span></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="editorpick">
-                                        <div class="imgblck"><a href=""><img alt="" src="assets/img/fre3.jpg" /></a></div>
-                                        <div class="userblock">
-                                            <div class="usertitle"><span><img alt="" src="assets/img/boy.jpg" /></span><a href="" class="title">Waqaskhan</a></div><div class="clearfix"></div>
-                                            <div class="userdesc"><a href=""> I will create unique mindblowing illustration for you in minimum price .</a></div>
-                                            <div class="alincenter"><span><span class="userstar"><img alt="" src="assets/img/star.png" /></span> <span class="colr">5.0</span> <span class="revs">(30)</span></span><span class="usercheck"><img alt="" src="assets/img/check.svg" /> </span></div>
-                                        </div>
-                                        <div class="userfot">
-                                            <div><span><a href="" data-toggle="tooltip" data-placement="right" title="Add to Saved"><i class="fa fa-heart"></i></a></span><span class="pull-right"><span class="start">Starting at </span><span class="price">$150</span></span></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+  <div class="container">
+    <div class="wow flipInX animated" data-wow-offset="10" data-wow-duration="1.5s">
+      <h2>What our Clients are saying</h2>
 
-                    </div>
-                    <div style="text-align:center"><button class="btn seeAll">See All</button></div>
-                </div>
-            </div>
-        </div>
-    </div>-->
-    <div class="clearfix"></div>
-
-    <div class="ourclients">
-        <div><img alt="" src="assets/img/overlayheader.png" /></div>
-        <div class="container">
-            <div class="wow flipInX animated" data-wow-offset="10" data-wow-duration="1.5s">
-                <h2>What our Clients are saying</h2>
-         
-            </div>
-            <div>
-                <div class="col-md-12">
-                    <div class="owl-carousel-2">
-                        <div class="item">
-                            <div class="testimonal">
-                                <div class="picture"><img alt="" src="assets/img/girl.png" /></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque ligula vitae amet. Lorem ipsum dolor sit , consectetur adipiscing elit. Etiam scelerisque ligula vitae amet psum dolor sit .</div>
-                                <div class="name">Pamela</div>
-                                <div class="smalltxt"><span>Kelowna, BC</span></div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonal">
-                                <div class="picture"><img alt="" src="assets/img/girl.png" /></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque ligula vitae amet. Lorem ipsum dolor sit , consectetur adipiscing elit. Etiam scelerisque ligula vitae amet psum dolor sit .</div>
-                                <div class="name">Pamela</div>
-                                <div class="smalltxt"><span>Kelowna, BC</span></div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonal">
-                                <div class="picture"><img alt="" src="assets/img/girl.png" /></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque ligula vitae amet. Lorem ipsum dolor sit , consectetur adipiscing elit. Etiam scelerisque ligula vitae amet psum dolor sit .</div>
-                                <div class="name">Pamela</div>
-                                <div class="smalltxt"><span>Kelowna, BC</span></div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonal">
-                                <div class="picture"><img alt="" src="assets/img/girl.png" /></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque ligula vitae amet. Lorem ipsum dolor sit , consectetur adipiscing elit. Etiam scelerisque ligula vitae amet psum dolor sit .</div>
-                                <div class="name">Pamela</div>
-                                <div class="smalltxt"><span>Kelowna, BC</span></div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonal">
-                                <div class="picture"><img alt="" src="assets/img/girl.png" /></div>
-                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque ligula vitae amet. Lorem ipsum dolor sit , consectetur adipiscing elit. Etiam scelerisque ligula vitae amet psum dolor sit .</div>
-                                <div class="name">Pamela</div>
-                                <div class="smalltxt"><span>Kelowna, BC</span></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </div>
-    <div class="clear"></div>
-    <div id="proaction">
-        <div class="container">
-            <div class="col-md-6">
-                <h1>Hire  Experts or be hired. For any job, any time.</h1>
-                <p>Bring to the table win-win servival stategies to ensure proactive domination. At the end of the day, going forward, new normal that has evolved from generation is on the runway towards.</p>
-            <button class="btn btn-getstarted" >GET STARTED</button>
+    <div>
+      <div class="col-md-12">
+        <div class="owl-carousel-2">
+          <div class="item">
+            <div class="testimonal">
+              <div class="picture"><img alt="" src="assets/img/girl.png" /></div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque ligula vitae amet. Lorem ipsum dolor sit , consectetur adipiscing elit. Etiam scelerisque ligula vitae amet psum dolor sit .</div>
+              <div class="name">Pamela</div>
+              <div class="smalltxt"><span>Kelowna, BC</span></div>
             </div>
+          </div>
+         <div class="item">
+            <div class="testimonal">
+              <div class="picture"><img alt="" src="assets/img/girl.png" /></div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque ligula vitae amet. Lorem ipsum dolor sit , consectetur adipiscing elit. Etiam scelerisque ligula vitae amet psum dolor sit .</div>
+              <div class="name">Pamela</div>
+              <div class="smalltxt"><span>Kelowna, BC</span></div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonal">
+              <div class="picture"><img alt="" src="assets/img/girl.png" /></div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque ligula vitae amet. Lorem ipsum dolor sit , consectetur adipiscing elit. Etiam scelerisque ligula vitae amet psum dolor sit .</div>
+              <div class="name">Pamela</div>
+              <div class="smalltxt"><span>Kelowna, BC</span></div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonal">
+              <div class="picture"><img alt="" src="assets/img/girl.png" /></div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque ligula vitae amet. Lorem ipsum dolor sit , consectetur adipiscing elit. Etiam scelerisque ligula vitae amet psum dolor sit .</div>
+              <div class="name">Pamela</div>
+              <div class="smalltxt"><span>Kelowna, BC</span></div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="testimonal">
+              <div class="picture"><img alt="" src="assets/img/girl.png" /></div>
+              <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam scelerisque ligula vitae amet. Lorem ipsum dolor sit , consectetur adipiscing elit. Etiam scelerisque ligula vitae amet psum dolor sit .</div>
+              <div class="name">Pamela</div>
+              <div class="smalltxt"><span>Kelowna, BC</span></div>
+            </div>
+          </div>
         </div>
+      </div>
+
     </div>
-    
-
-
-    
+  </div>
+</div>
+<div class="clear"></div>
 
 
     <div class="clear"></div>

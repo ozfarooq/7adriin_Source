@@ -15,7 +15,9 @@ export class SharedService {
   public apiBaseUrl = 'https://www.staginggafah.com/webapi/api/';
   //public apiBaseUrl = 'https://stagingapi.7adriin.com/api/';
   //public apiBaseUrl = 'http://localhost:1234/sevenAdriin/';
+  public google_client_id = '559653155557-s6vihljjdj5bujb0tsidl1b4n9q7sfdf.apps.googleusercontent.com';
   public defaultNoImage= 'assets/images/noImage.png';
+  public profileNoImage= 'assets/img/profile-photo.jpg';
   private headers: Headers= new Headers();
    private headerOptions: RequestOptions= new RequestOptions();
   constructor(private http: Http) {
@@ -32,8 +34,8 @@ this.headerOptions = new RequestOptions({ headers: this.headers });
      this.isLoggedInEmitter.emit(loginStatus);
  }
  public changeSelectedLanguage(selectedLanguage: string) {
-   //debugger;
-  this.languageEmitter.emit(selectedLanguage);
+  //debugger;
+ this.languageEmitter.emit(selectedLanguage);
 }
  public getAllCountries() {
   const data = new URLSearchParams();

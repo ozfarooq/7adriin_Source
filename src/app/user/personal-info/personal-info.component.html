@@ -24,9 +24,19 @@
     <div class="field-content">
         <section class="profile-photo">
             <div class="user-profile-image">
-                <label class="user-pict user-pict-undefined editable" for="profile_image">
+                    <div class="imgCropperPreviewResult" *ngIf="dataPersonalImage.image" >
+                            <img [src]="dataPersonalImage.image" [width]="personalWidth"
+                            [height]="personalHeight">
+                            </div>
+                  
+                            <input id="custom-input" class="btnUpload" type="file" accept=".png, .jpg, .jpeg" 
+                            capture="camera" multiple (change)="personalFileChangeListener($event)">
+                            <!--<button ion-button (click)="editImage('personal');" *ngIf="isImageExist">
+                              <ion-icon name="md-create"></ion-icon>
+                            </button>-->
+                <!--<label class="user-pict user-pict-undefined editable" for="profile_image">
                     <input type="file" accept="image/png,image/jpeg" class="hidden" id="profile_image" name="profile[image]"><img src="../img/fre3.jpg" class="user-pict-img" alt="">
-                </label>
+                </label>-->
             </div>
         </section>
     </div>
@@ -89,8 +99,9 @@
       <aside><h3>Description*</h3></aside>
       <div class="field-content">
           <div class="inner-row description">
-              <textarea placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." [(ngModel)]="description" name="description" required></textarea>
-          </div>
+              <!--<textarea placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." [(ngModel)]="description" name="description" required></textarea>-->
+              <div id="user_description_editor" contenteditable="true"  class="homeDescTxt"></div>
+            </div>
       </div>
   </div>
   <div class="info-field">

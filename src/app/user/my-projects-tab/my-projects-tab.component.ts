@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-projects-tab.component.css']
 })
 export class MyProjectsTabComponent implements OnInit {
-
+public myProjectTab = '0';
   constructor() { }
 
   ngOnInit() {
   }
-
+  setmyProjectTabs(tabIndex: string) {
+    this.myProjectTab = tabIndex;
+   }
 }

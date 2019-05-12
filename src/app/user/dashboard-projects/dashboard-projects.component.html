@@ -1,0 +1,334 @@
+<div class="content" *ngIf="userType=='0'">
+    <ul class="nav nav-tabs">
+        <li role="presentation" class="{{userProjectTab=='0' ? 'active': ''}}"><a data-toggle="tab" href="#innermenu1" class="active show" (click)="setUserTabs('0')">Current Projects</a></li>
+        <li role="presentation" class="{{userProjectTab=='1' ? 'active': ''}}"><a data-toggle="tab" href="#innermenu2" (click)="setUserTabs('1')">Completed Projects </a></li>
+        <li role="presentation" class="{{userProjectTab=='2' ? 'active': ''}}"><a data-toggle="tab" href="#innermenu3" (click)="setUserTabs('2')">Canceled Projects </a></li>
+        <li role="presentation" class="{{userProjectTab=='3' ? 'active': ''}}"><a data-toggle="tab" href="#innermenu4" (click)="setUserTabs('3')">Number of Proposals <span class="notibadge">03</span></a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="innermenu1" class="tab-pane fade active in">
+            <div class="todocontent"> 
+                <table width="100%">
+                    <thead>
+                        <tr class="tdhead">
+                            <td>User</td>
+                            <td>
+                                Date
+                            </td>
+                            <td>
+                               Project
+                            </td>
+
+                            <td>
+                                Status
+                            </td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tdhead2" *ngFor="let project of allCurrentProjectList">
+                            <td><img alt="" [src]="project.image_url" /></td>
+                            <td class="profile-hint">
+                                <div class="fake-hint-wrap user-nav">
+                                        {{project.action_date | date: 'dd/MM/yyyy'}}
+                                    <!--{{formateDate(project.action_date)}}-->
+                                </div>
+                            </td>
+                            <td class="profile-hint ">
+                                <div class="buyseller"><a href="">{{project.pro_title}}</a></div>
+                            </td>
+                            <td class="text-simple" *ngIf="project.status=='pending'">
+                                <span class="labelbg label-default">Pending</span>
+                            </td>
+                            <td class="text-simple" *ngIf="project.status=='assigned'">
+                                <span class="labelbg label-success">Assigned</span>
+                            </td>
+                        </tr>
+                        <tr class="tdhead2" *ngIf="allCurrentProjectList.length<=0">
+                            <td colspan="4">
+                            No projects found
+                            </td>            
+                          </tr>
+                        </tbody>
+                </table>    
+                  </div>
+
+        </div>
+        <div id="innermenu2" class="tab-pane fade">
+                <div class="todocontent"> 
+                        <table width="100%">
+                            <thead>
+                                <tr class="tdhead">
+                                    <td>User</td>
+                                    <td>
+                                        Date
+                                    </td>
+                                    <td>
+                                       Project
+                                    </td>
+        
+                                    <td>
+                                        Status
+                                    </td>
+        
+                                </tr>
+                            </thead>
+                            <tbody>
+        
+                                <tr class="tdhead2" *ngFor="let project of allCompletedProjectList">
+                                    <td><img alt="" [src]="project.image_url" /></td>
+                                    <td class="profile-hint">
+                                        <div class="fake-hint-wrap user-nav">
+                                                {{project.action_date | date: 'dd/MM/yyyy'}}
+                                        </div>
+                                    </td>
+                                    <td class="profile-hint ">
+                                        <div class="buyseller"><a href="">{{project.pro_title}}</a></div>
+                                    </td>
+                                    <td class="text-simple">
+                                            <span class="labelbg label-success">Completed</span>
+                                    </td>
+                                   
+                                </tr>
+                                <tr class="tdhead2" *ngIf="allCompletedProjectList.length<=0">
+                                    <td colspan="4">
+                                    No projects found
+                                    </td>            
+                                  </tr>
+                                
+                                </tbody>
+                        </table>    
+                    </div>
+        </div>
+        <div id="innermenu3" class="tab-pane fade">
+            <div class="todocontent"> 
+                    <table width="100%">
+                        <thead>
+                            <tr class="tdhead">
+                                <td>User</td>
+                                <td>
+                                    Date
+                                </td>
+                                <td>
+                                   Project
+                                </td>
+    
+                                <td>
+                                    Status
+                                </td>
+    
+                            </tr>
+                        </thead>
+                        <tbody>
+    
+                            <tr class="tdhead2" *ngFor="let project of allCanceledProjectList">
+                                <td><img alt="" [src]="project.image_url" /></td>
+                                <td class="profile-hint">
+                                    <div class="fake-hint-wrap user-nav">
+                                            {{project.action_date | date: 'dd/MM/yyyy'}}
+                                    </div>
+                                </td>
+                                <td class="profile-hint ">
+                                    <div class="buyseller"><a href="">{{project.pro_title}}</a></div>
+                                </td>
+                                <td class="text-simple">
+                                        <span class="labelbg label-danger">Canceled</span>
+                                </td>
+                               
+                            </tr>
+                            <tr class="tdhead2" *ngIf="allCanceledProjectList.length<=0">
+                                <td colspan="4">
+                                No projects found
+                                </td>            
+                              </tr>
+                            
+                            </tbody>
+                    </table>    
+                      </div>
+
+        </div>
+        <div id="innermenu4" class="tab-pane fade">
+            <div class="todocontent">
+
+                <table width="100%">
+                    <thead>
+                        <tr class="tdhead">
+                            <td>User</td>
+                            <td>
+                                Date
+                            </td>
+                            <td>
+                                Project
+                            </td>
+
+                            <td>
+                                Status
+                            </td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr class="tdhead2">
+                            <td><img alt="" src="assets/img/girl.png" /></td>
+                            <td class="profile-hint">
+                                <div class="fake-hint-wrap user-nav">
+                                    17 Mar 2019
+                                </div>
+                            </td>
+                            <td class="profile-hint ">
+                                <div class="buyseller"><a href="">Designguru</a> created a milestone payment of $200 for <a href="#">Website Changes Project</a> </div>
+                            </td>
+                            <td class="text-simple ">
+                                <select>
+                                    <option value="Accept">Accept</option>
+                                    <option value="Reject">Reject</option>
+                                </select>
+                            </td>
+
+
+                        </tr>
+                        <tr class="tdhead2">
+                            <td><img alt="" src="assets/img/girl.png" /></td>
+                            <td class="profile-hint">
+                                <div class="fake-hint-wrap user-nav">
+                                    17 Mar 2019
+                                </div>
+                            </td>
+                            <td class="profile-hint ">
+                                <div class="buyseller"><a href="">Designguru</a> created a milestone payment of $200 for <a href="#">Website Changes Project</a> </div>
+                            </td>
+                            <td class="text-simple ">
+                                <select>
+                                    <option value="Accept">Accept</option>
+                                    <option value="Reject">Reject</option>
+                                </select>
+                            </td>
+
+
+                        </tr>
+                        <tr class="tdhead2">
+                            <td><img alt="" src="assets/img/girl.png" /></td>
+                            <td class="profile-hint">
+                                <div class="fake-hint-wrap user-nav">
+                                    17 Mar 2019
+                                </div>
+                            </td>
+                            <td class="profile-hint ">
+                                <div class="buyseller"><a href="">Designguru</a> created a milestone payment of $200 for <a href="#">Website Changes Project</a> </div>
+                            </td>
+                            <td class="text-simple ">
+                                <select>
+                                    <option value="Accept">Accept</option>
+                                    <option value="Reject">Reject</option>
+                                </select>
+                            </td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="content" *ngIf="userType=='1'">
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="{{userProjectTab=='4' ? 'active': ''}}"><a href="#01" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false" (click)="setUserTabs('4')">Current Work <span class="notibadge">03</span> </a></li>
+        <li role="presentation"  class="{{userProjectTab=='5' ? 'active': ''}}"><a href="#02" aria-controls="messages" role="tab" data-toggle="tab" aria-expanded="false" (click)="setUserTabs('5')">Completed Work <span class="notibadge">03</span></a></li>
+
+    </ul>
+
+    <div class="tab-content tabbg">
+        <div role="tabpanel" class="tab-pane active" id="01">
+            <div class="main-table">
+                <table>
+                    <thead><tr><td colspan="2"></td><td>Rating</td><td>Order Date</td><td>Due on</td><td>Total</td><td class="t-a-center" colspan="2">Status</td></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/img/boy.jpg"></td>
+                            <td ><a href="#">Write 2 x 500 word unique articles by native english writer</a></td>
+                            <td class=""></td>
+                            <td >Jun 05, 2017</td>
+                            <td >Jun 06, 2017</td>
+                            <td >$6.00</td>
+                            <td><span class="labelbg label-default">In Progress</span></td>
+                        </tr>
+                        <tr>
+                            <td ><img src="assets/img/girl.png"></td>
+                            <td><a href="#">Write 2 x 500 word unique articles by native english writer</a></td>
+                            <td><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /></td>
+                            <td>Jun 05, 2017</td>
+                            <td>Jun 06, 2017</td>
+                            <td>$6.00</td>
+                            <td><span class="labelbg label-success">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/img/boy.jpg"></td>
+                            <td><a href="#">Write 2 x 500 word unique articles by native english writer</a></td>
+                            <td class=""></td>
+                            <td>Jun 05, 2017</td>
+                            <td>Jun 06, 2017</td>
+                            <td>$6.00</td>
+                            <td><span class="labelbg label-danger">Cancel</span></td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/img/girl.png"></td>
+                            <td><a href="#">Write 2 x 500 word unique articles by native english writer</a></td>
+                            <td class=""></td>
+                            <td>Jun 05, 2017</td>
+                            <td>Jun 06, 2017</td>
+                            <td>$6.00</td>
+                            <td><span class="labelbg label-warning">Not Satified</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="02">
+            <div class="main-table">
+                <table>
+                    <thead><tr><td colspan="2"></td><td>Rating</td><td>Order Date</td><td>Complete Date</td><td>Total</td><td class="t-a-center" colspan="2">Status</td></tr></thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/img/boy.jpg"></td>
+                            <td><a href="#">Write 2 x 500 word unique articles by native english writer</a></td>
+                            <td><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /></td>
+                            <td>Jun 05, 2017</td>
+                            <td>Jun 06, 2017</td>
+                            <td>$6.00</td>
+                            <td><span class="labelbg label-success">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/img/girl.png"></td>
+                            <td><a href="#">Write 2 x 500 word unique articles by native english writer</a></td>
+                            <td><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /></td>
+                            <td>Jun 05, 2017</td>
+                            <td>Jun 06, 2017</td>
+                            <td>$6.00</td>
+                            <td><span class="labelbg label-success">Completed</span></td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/img/boy.jpg"></td>
+                            <td><a href="#">Write 2 x 500 word unique articles by native english writer</a></td>
+                            <td><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /><img alt="" src="assets/img/star.png" class="imgstar" /></td>
+                            <td>Jun 05, 2017</td>
+                            <td>Jun 06, 2017</td>
+                            <td>$6.00</td>
+                            <td><span class="labelbg label-success">Completed</span></td>
+                        </tr>
+                     
+                    </tbody>
+                </table>
+            </div>
+
+        </div><!--02-->
+
+
+
+
+
+    </div>
+</div>

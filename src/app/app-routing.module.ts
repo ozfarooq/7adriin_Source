@@ -22,6 +22,11 @@ import { MyNotificationsComponent } from './user/my-notifications/my-notificatio
 import { MyProfileComponent } from './user/my-profile/my-profile.component';
 import { RegisterationInfoComponent } from './user/registeration-info/registeration-info.component';
 import { VerifyCompleteComponent } from './user/verify-complete/verify-complete.component';
+import { AllCategoriesComponent } from './user/all-categories/all-categories.component';
+import { ChangePasswordComponent } from './user/change-password/change-password.component';
+import { FbConfirmComponent } from './user/fb-confirm/fb-confirm.component';
+import { FinancialStatementComponent } from './user/financial-statement/financial-statement.component';
+import { DashboardProjectsComponent } from './user/dashboard-projects/dashboard-projects.component';
 
 const routes: Routes = [
   {
@@ -43,10 +48,16 @@ const routes: Routes = [
       path: 'register', component: RegisterComponent
     },
     {
+      path: 'register/:type', component: RegisterComponent
+    },
+    {
       path: 'project-detail', component: ProjectDetailComponent
     },
     {
       path: 'project-listing', component: ProjectListingComponent
+    },
+    {
+      path: 'project-listing/:catId', component: ProjectListingComponent
     },
     {
       path: 'dashboard', component: DashboardComponent
@@ -57,6 +68,9 @@ const routes: Routes = [
     },
     {
       path: 'content', component: ContentPageComponent
+    },
+    {
+      path: 'content/:type', component: ContentPageComponent
     }
     ,
     {
@@ -88,6 +102,24 @@ const routes: Routes = [
     },
     {
       path: 'verify/:verificationCode', component: VerifyCompleteComponent
+    },
+    {
+      path: 'categories', component: AllCategoriesComponent
+    },
+    {
+      path: 'change-password/:userId', component: ChangePasswordComponent
+    },
+    {
+      path: 'FbConfirmPage', component: FbConfirmComponent
+    },
+    {
+      path: 'FbConfirmPage/:type', component: FbConfirmComponent
+    },
+    {
+      path: 'financial-statement', component: FinancialStatementComponent
+    },
+    {
+      path: 'dashboard-projects', component: DashboardProjectsComponent
     }
   ];
   @NgModule({

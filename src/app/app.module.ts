@@ -7,10 +7,17 @@ import { HttpModule } from '@angular/http';
 
 import { Ng4GeoautocompleteModule } from 'ng4-geoautocomplete';
 import { NgProgressModule } from 'ng2-progressbar';
-import {NgxPaginationModule} from 'ngx-pagination';
+//import {NgxPaginationModule} from 'ngx-pagination';
+import {SelectModule} from 'ng2-select-compat';
+import { DatepickerModule } from 'angular2-material-datepicker';
 import {ConfirmModule} from 'angular2-bootstrap-confirm';
 import { LocalStorageModule } from 'angular-2-local-storage';
+//import { ImageCropperComponent, CropperSettings } from 'ng2-img-cropper';
+import { NotifierModule, NotifierOptions } from 'angular-notifier';
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+//import { MultiselectDropdownModule } from 'angular-2-dropdown-multiselect';
+//import { NgNotifyPopup } from 'ng2-notify-popup';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +36,7 @@ import { PostLoginComponent } from './user/post-login/post-login.component';
 import { ForgetPasswordComponent } from './user/forget-password/forget-password.component';
 import { UserService } from './services/user.service';
 import { SharedService } from './services/shared.service';
+import { ProjectService } from './services/project.service';
 import { SimpleSearchComponent } from './user/simple-search/simple-search.component';
 import { ContentPageComponent } from './user/content-page/content-page.component';
 import { RecentlyViewedComponent } from './user/recently-viewed/recently-viewed.component';
@@ -54,6 +62,24 @@ import { LinkedAccountsComponent } from './user/linked-accounts/linked-accounts.
 import { AccountSecurityComponent } from './user/account-security/account-security.component';
 import { RegisterationInfoComponent } from './user/registeration-info/registeration-info.component';
 import { VerifyCompleteComponent } from './user/verify-complete/verify-complete.component';
+import { AllCategoriesComponent } from './user/all-categories/all-categories.component';
+import { ChangePasswordComponent } from './user/change-password/change-password.component';
+import { FbConfirmComponent } from './user/fb-confirm/fb-confirm.component';
+import { FinancialStatementComponent } from './user/financial-statement/financial-statement.component';
+import { DashboardProjectsComponent } from './user/dashboard-projects/dashboard-projects.component';
+
+
+const customNotifierOptions: NotifierOptions = {
+  position: { horizontal: {	position: 'middle',	distance: 12 }, vertical: {	position: 'top',	distance: 12,	gap: 10	}	},
+  theme: 'material', behaviour: { autoHide: 5000, onClick: 'hide', onMouseover: 'pauseAutoHide', showDismissButton: true,
+    stacking: 4
+  },
+  animations: { enabled: true, show: { preset: 'slide', speed: 300, easing: 'ease'},
+    hide: { preset: 'fade', speed: 300, easing: 'ease', offset: 50 },
+    shift: { speed: 300, easing: 'ease'  },
+    overlap: 150
+  }
+};
 
 @NgModule({
   declarations: [
@@ -66,19 +92,21 @@ import { VerifyCompleteComponent } from './user/verify-complete/verify-complete.
     MyProjectsTabComponent, MyTodosComponent, MyBuyersComponent, MySellersComponent,
     BillingComponent, SecurityComponent, MyAccountComponent, SettingNotificationsComponent,
     PersonalInfoComponent, ProfessionalInfoComponent, LinkedAccountsComponent,
-    AccountSecurityComponent, RegisterationInfoComponent, VerifyCompleteComponent
+    AccountSecurityComponent, RegisterationInfoComponent, VerifyCompleteComponent,
+     AllCategoriesComponent, ChangePasswordComponent, FbConfirmComponent, FinancialStatementComponent, 
+     DashboardProjectsComponent
   ],
   imports: [
     BrowserModule, FormsModule, AppRoutingModule,
     HttpModule,
     LocalStorageModule.withConfig({
-            prefix: 'SevenAdriin',
-            storageType: 'localStorage'
-        }), NgxPaginationModule, NgProgressModule, Ng4GeoautocompleteModule.forRoot(),
-        BootstrapModalModule, ConfirmModule
-  ],
+      prefix: 'Gafah',
+      storageType: 'localStorage'
+  }), NgProgressModule, Ng4GeoautocompleteModule.forRoot(),
+        BootstrapModalModule, DatepickerModule, ConfirmModule,
+        SelectModule, NotifierModule.withConfig(customNotifierOptions)],
  //providers: [{ provide: APP_BASE_HREF, useValue: '/' }, UserService, SharedService],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, UserService, SharedService],
+ providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, UserService, SharedService, ProjectService],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   exports: [],

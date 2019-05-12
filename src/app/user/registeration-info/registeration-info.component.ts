@@ -7,6 +7,7 @@ import { LocationStrategy, Location } from '@angular/common';
 import {DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
 import { Router, CanActivate, RouterModule, ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from 'angular-2-local-storage';
+//import {LocalStorageService} from 'ngx-localstorage';
 import {NgProgressService} from 'ng2-progressbar';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { SimpleSearchComponent } from '../simple-search/simple-search.component';
@@ -27,6 +28,7 @@ export class RegisterationInfoComponent implements OnInit, AfterViewInit {
   public urlToUse= '';
   public userType= '';
   public userLoggedIn= false;
+  public registerTab= '1';
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
     private userServiceObj: UserService, private sharedServiceObj: SharedService,
@@ -40,5 +42,9 @@ export class RegisterationInfoComponent implements OnInit, AfterViewInit {
   loadOneApp() {
     //debugger;
     App.init();
+  }
+  setRegisterTab(registerationTab: string) {
+this.registerTab = registerationTab;
+
   }
 }

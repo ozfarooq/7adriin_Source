@@ -5,20 +5,20 @@
           <div class="proinfo">
               <div class="proinfo-row nav nav-tabs">
                   <div class="proinfo-step">
-                      <button type="button" class="btn btn-info profin-circle" data-toggle="tab" href="#menu1">1</button>
+                      <button type="button" class="btn profin-circle {{registerTab=='1' ? 'btn-info': 'btn-default'}}" data-toggle="tab" href="#menu1" (click)="setRegisterTab('1')">1</button>
                       <p>Personal Info</p>
                   </div>
                   <div class="proinfo-step">
-                      <button type="button" class="btn btn-default profin-circle" data-toggle="tab" href="#menu2">2</button>
+                      <button type="button" class="btn profin-circle {{registerTab=='2' ? 'btn-info': 'btn-default'}}" data-toggle="tab" href="#menu2" (click)="setRegisterTab('2')">2</button>
                       <p>Professional Info</p>
                   </div>
                   <div class="proinfo-step">
-                      <button type="button" class="btn btn-default profin-circle" data-toggle="tab" href="#menu3">3</button>
+                      <button type="button" class="btn profin-circle {{registerTab=='3' ? 'btn-info': 'btn-default'}}" data-toggle="tab" href="#menu3" (click)="setRegisterTab('3')">3</button>
                       <p>Lined Accounts</p>
                   </div>
 
                   <div class="proinfo-step">
-                      <button type="button" class="btn btn-default profin-circle" data-toggle="tab" href="#menu4">4</button>
+                      <button type="button" class="btn profin-circle {{registerTab=='4' ? 'btn-info': 'btn-default'}}" data-toggle="tab" href="#menu4" (click)="setRegisterTab('4')">4</button>
                       <p>Account Security</p>
                   </div>
               </div>

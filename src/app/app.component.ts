@@ -18,6 +18,7 @@ import { UserService } from './services/user.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
+  public allCategoryList: any[] = [];
   title = 'Gafah';
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
@@ -26,8 +27,24 @@ export class AppComponent implements OnInit {
     sharedServiceObj.languageEmitter.subscribe(item => this.setLanguage(item));
     }
   ngOnInit() {
+    this.loadAllCategories();
     document.getElementById('websiteCss').innerHTML = '<link href="assets/css/style.css" rel="stylesheet" />';
     //debugger;
+  }
+  loadAllCategories() {
+    this.userServiceObj.loadAllCategories()
+    .subscribe((result) => this.loadAllCategoriesResp(result));
+  }
+  loadAllCategoriesResp(result: any): void {
+    if ( result.status === true) {
+      this.allCategoryList = result.results;
+      //this.runCarosel();
+      //debugger;
+      this.localStorageService.set('categoryList', this.allCategoryList);
+    } else {
+      this.allCategoryList = [];
+      this.localStorageService.set('categoryList', this.allCategoryList);
+    }
   }
   setLanguage(languageId: string) {
 if (languageId === '1') {

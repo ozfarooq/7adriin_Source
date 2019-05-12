@@ -1,4 +1,43 @@
 <aside class="dbsidebar">
+        <div class="content upro">
+            <div>
+                <div class="userpicture-80"><a href=""><div><img [src]="loggedInUserInfo.memberCredentials.image_url" 
+                    (error)="imgProfile.src = this.sharedServiceObj.profileNoImage" #imgProfile/>
+                </div></a></div>
+                <div>
+                    <div>Welcome Back</div>
+                    <div><h2>{{loggedInUserInfo.memberCredentials.full_name}}</h2></div>
+                    <div><!--<span class="badgee"><img alt="" src="assets/img/check.svg" /></span>-->
+                        <span class="txt" *ngIf="userType=='0'">Freelane</span>
+                        <span class="txt" *ngIf="userType=='1'">Employer</span></div>
+
+                </div>
+            </div><div class="clearfix">&nbsp;</div>
+            <div><label>Set up your account</label></div>
+            <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="loggedInUserInfo.memberCredentials.profile_completion" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                    {{loggedInUserInfo.memberCredentials.profile_completion}}%
+                </div>
+            </div>
+        </div>
+        <div class="content" *ngIf="userType=='0'">
+            <div class="postrequest">
+                <div><h2>What Service Are You Looking For?</h2></div>
+                <div><label>Make a request and receive offers from qualified sellers.</label></div>
+                <div><img alt="" src="assets/img/art.svg" /></div>
+                <div><a href="" class="btn requestbtn">Post a Request</a></div>
+            </div>
+        </div>
+        <div class="content" *ngIf="userType=='1'">
+            <div class="postrequest">
+                <div><h2>What Service Are You Looking For?</h2></div>
+                <div><label>Make a request and receive offers from qualified sellers.</label></div>
+                <div><img alt="" src="assets/img/art.svg" /></div>
+                <div><a href="javascript:void(0)" routerLink="/create-project" class="btn requestbtn">Post a Project</a></div>
+            </div>
+        </div>
+    </aside>
+<!--<aside class="dbsidebar">
     <div class="content uppad">
         <div class="user-online-indicator is-online " data-user-id="26468300" data-reactid="2"><i class="fa fa-circle" data-reactid="3"></i>online</div>
         <div class="clearfix">&nbsp; &nbsp;</div>
@@ -277,7 +316,7 @@
                     <section>
                         <ul class="items-list">
                             <li>
-                                <span class="title">MCS</span><!--<span class="sub-title">Computer Science</span>-->
+                                <span class="title">MCS</span>
                                 <input type="hidden" name="" value="conversational">
                             </li>
                             
@@ -320,4 +359,4 @@
             </div>
     </div>
         </div>
-</aside>
+</aside>-->

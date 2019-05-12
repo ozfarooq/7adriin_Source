@@ -7,6 +7,7 @@ import { LocationStrategy, Location } from '@angular/common';
 import {DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
 import { Router, CanActivate, RouterModule, ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from 'angular-2-local-storage';
+//import {LocalStorageService} from 'ngx-localstorage';
 import {NgProgressService} from 'ng2-progressbar';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { SimpleSearchComponent } from '../simple-search/simple-search.component';
@@ -16,6 +17,7 @@ import { UserService } from '../../services/user.service';
 
 declare const FB: any;
 declare const cbpHorizontalMenu: any;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -28,29 +30,38 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   public allCategoryList: any[] = [];
   public allSubCategoryList: any[] = [];
   public filteredSubCategoryList: any[] = [];
+  public selectedLanguage= '1';
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
     private userServiceObj: UserService, private sharedServiceObj: SharedService,
-    private url: LocationStrategy, private dialogService: DialogService) {
+    private url: LocationStrategy, private dialogService: DialogService, private ngZone: NgZone) {
       sharedServiceObj.isLoggedInEmitter.subscribe(item => this.setLoginStatus(item));
     }
 
   ngOnInit() {
     this.setLoginInitialStatus();
-    this.loadAllCategories();
-    this.loadAllAvailableSubCategories();
+   // this.loadAllCategories();
+    //this.loadAllAvailableSubCategories();
     }
     ngAfterViewInit() {
     this.loadHeaderSubMenu();
   }
+  changeSelectedLanguage(e: any) {
+    this.sharedServiceObj.changeSelectedLanguage(this.selectedLanguage);
+    }
   loadHeaderSubMenu() {
     cbpHorizontalMenu.init();
   }
   searchProject() {
+    this.ngZone.run(() => {
     this.router.navigate(['project-listing']);
+    });
   }
   registerUser(type: string) {
+
+    this.ngZone.run(() => {
     this.router.navigate(['register']);
+    });
   }
   loadAllCategories() {
     //debugger;
@@ -85,10 +96,17 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.filteredSubCategoryList = this.allSubCategoryList.filter(
       category => category.cat_id === cat_Id);
       this.allCategoryList.forEach(element => {
-        document.getElementById( 'cat_' + element.id).style.display = 'none';
+        if (element.id !== cat_Id) {
+          document.getElementById( 'cat_' + element.id).style.display = 'none';
+        }
       });
       if (this.filterSubCategories.length > 0 ) {
-       document.getElementById( 'cat_' + cat_Id).style.display = 'block';
+        //debugger;
+        if (document.getElementById( 'cat_' + cat_Id).style.display === 'block') {
+          document.getElementById( 'cat_' + cat_Id).style.display = 'none';
+        } else {
+          document.getElementById( 'cat_' + cat_Id).style.display = 'block';
+        }
       }
       //debugger;
   }
@@ -106,7 +124,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
     this.userType = '0';
     }
     if (this.urlToUse === 'home') {
+      this.ngZone.run(() => {
     this.router.navigate(['dashboard']);
+      });
     }
       }else {
     this.userLoggedIn = false;
@@ -126,7 +146,9 @@ export class HeaderComponent implements OnInit, AfterViewInit {
        FB.getLoginStatus(response => {
                  this.logOutFaceBook(response);
              });
+      this.ngZone.run(() => {
        this.router.navigate(['home']);
+      });
      }
      logOutFaceBook(resp) {
              if (resp.status === 'connected') {

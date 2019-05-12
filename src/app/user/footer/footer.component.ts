@@ -21,18 +21,35 @@ declare const FB: any;
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-public selectedLanguage= '1';
+  public selectedLanguage= '1';
+  public allCategoryList: any[] = [];
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
     private userServiceObj: UserService, private sharedServiceObj: SharedService,
-    private url: LocationStrategy, private dialogService: DialogService) { }
+    private url: LocationStrategy, private dialogService: DialogService, private ngZone: NgZone) { 
+      
+    }
 
   ngOnInit() {
+    this.loadAllCategories();
   }
-loadContentPage() {
-  this.router.navigate(['content']);
+  loadAllCategories() {
+    this.userServiceObj.loadAllCategories()
+    .subscribe((result) => this.loadAllCategoriesResp(result));
+  }
+  loadAllCategoriesResp(result: any): void {
+    if ( result.status === true) {
+      this.allCategoryList = result.results;
+    } else {
+      this.allCategoryList = [];
+    }
+  }
+loadContentPage(pageType: string) {
+  this.ngZone.run(() => {
+  this.router.navigate(['content', {type: pageType}]);
+  });
 }
 changeSelectedLanguage(e: any) {
-this.sharedServiceObj.changeSelectedLanguage(this.selectedLanguage);
-}
+  this.sharedServiceObj.changeSelectedLanguage(this.selectedLanguage);
+  }
 }

@@ -1,39 +1,36 @@
 <app-header></app-header>
 <div class="container">
     <div class="row">
-        <div class="join"><h2>Join To 7Adriin</h2></div>
+        <div class="join"><h2>Join To Gafah</h2></div>
         <form class="form-signin">
             <div class="slogo"><img src="assets/img/slogo.png" /></div>
             <div class="social-box">
                 <div class="row">
                     <div class="col-md-12">
                         <button class="btn facebookbtn" (click)="onFacebookLoginClick();">
-                            <i class="fa fa-facebook" ></i>    Continue with Facebook
+                            <i class="fa fa-facebook" ></i>    Sign Up with Facebook
                         </button>
-                        <a href="#" class="btn googlebtn">
-                            <i class="fa fa-google-plus" ></i>    Continue with Google
-                        </a>
+                        <button #btnGoogle class="btn googlebtn" id="btnGoogleId">
+                            <i class="fa fa-google-plus"></i>   Sign Up with Google
+                        </button>
                     </div>
                 </div>
             </div>
             <div class="line"><span>OR</span></div>
-            
-                 
-                            <div class="container">
-                                
-                                    <div class="proinfo">
+                            <div>
+                                    <!--<div class="proinfo" style="padding-top:0px !important;">
                                         <div class="proinfo-row nav nav-tabs">
                                             <div class="proinfo-step">
-                                                <button type="button" class="btn btn-info profin-circle" data-toggle="tab" href="#menu1" (click)="setUserType('0')">1</button>
+                                                <button type="button" class="btn profin-circle {{userType=='0' ? 'btn-info': 'btn-default'}}" data-toggle="tab" href="#menu1" (click)="setUserType('0')">1</button>
                                                 <p>Register As Freelancer</p>
                                             </div>
                                             <div class="proinfo-step">
-                                                <button type="button" class="btn btn-default profin-circle" data-toggle="tab" href="#menu1" (click)="setUserType('1')">2</button>
+                                                <button type="button" class="btn profin-circle {{userType=='1' ? 'btn-info': 'btn-default'}}" data-toggle="tab" href="#menu1" (click)="setUserType('1')">2</button>
                                                 <p>Register As Employer</p>
                                             </div>
                                             
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <div class="tab-content">
                                             
                                         <div id="menu1" class="tab-pane fade active in">
@@ -45,7 +42,7 @@
                                                         <button class="btn continuebtn" 
                                                         (click)="userSignUp();" [disabled]="!formSignUp.valid">SIGN UP</button>
                                         
-                                                        By joining I agree to receive emails from 7Adriin.
+                                                        By joining I agree to receive emails from Gafah.
                                                         <span class="clearfix"></span>
                                                     </form>
                                                 </div>

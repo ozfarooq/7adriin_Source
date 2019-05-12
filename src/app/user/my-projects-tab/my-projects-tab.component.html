@@ -1,3 +1,7 @@
+<ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="{{myProjectTab=='0' ? 'active': ''}}" (click)="setmyProjectTabs('0')"><a href="#01" aria-controls="profile" role="tab" data-toggle="tab" aria-expanded="false">Current Work <span class="notibadge">03</span> </a></li>
+        <li role="presentation"  class="{{myProjectTab=='1' ? 'active': ''}}" (click)="setmyProjectTabs('1')"><a href="#02" aria-controls="messages" role="tab" data-toggle="tab" aria-expanded="false">Past Work <span class="notibadge">03</span></a></li>
+</ul>
 <div class="tab-content tabbg">
     <div role="tabpanel" class="tab-pane active" id="01">
         <div class="main-table">

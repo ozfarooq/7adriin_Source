@@ -7,10 +7,12 @@ import { LocationStrategy, Location } from '@angular/common';
 import {DomSanitizer, SafeHtml, SafeStyle, SafeScript, SafeUrl, SafeResourceUrl} from '@angular/platform-browser';
 import { Router, CanActivate, RouterModule, ActivatedRoute } from '@angular/router';
 import { LocalStorageService } from 'angular-2-local-storage';
+//import {LocalStorageService} from 'ngx-localstorage';
 import {NgProgressService} from 'ng2-progressbar';
 import { DialogService } from 'ng2-bootstrap-modal';
 import { SimpleSearchComponent } from '../simple-search/simple-search.component';
-
+//import { NotificationService } from 'ng2-notify-popup';
+import { NotifierService } from 'angular-notifier';
 import { SharedService } from '../../services/shared.service';
 import { UserService } from '../../services/user.service';
 
@@ -26,10 +28,12 @@ declare const App: any;
 export class VerifyCompleteComponent implements OnInit {
   public verification_code= '';
   public userVerificationMsg= '';
+  private readonly notify: NotifierService;
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
-    private userServiceObj: UserService, private sharedServiceObj: SharedService,
-    private url: LocationStrategy, private dialogService: DialogService) {
+    private userServiceObj: UserService, private sharedServiceObj: SharedService, private ngZone: NgZone,
+    private url: LocationStrategy, private dialogService: DialogService, private notifierService: NotifierService) {
+      this.notify = notifierService;
       this._routeParams.params.subscribe(params => {
         this.verification_code = params['verificationCode'];
     });
@@ -47,12 +51,16 @@ export class VerifyCompleteComponent implements OnInit {
       this.userVerificationMsg = 'User has been successfully verified.';
       this.localStorageService.set('loggedInUserInfo', result.memberCredentials);
       //this.notify.show( result.message.toUpperCase(), { position: 'top', duration: '2000', type: 'success' });
+      this.notify.notify( 'success', this.userVerificationMsg.toUpperCase() );
+      this.ngZone.run(() => {
       this.router.navigate(['personal-info']);
+      });
 
     } else {
       // this.userCreated = true;
       // this.userSignUpMsg = result.message.toUpperCase();
       //this.notify.show( result.message.toUpperCase(), { position: 'top', duration: '2000', type: 'error' });
+      this.notify.notify( 'error', result.message.toUpperCase() );
     }
 
   }

@@ -21,17 +21,26 @@ declare const FB: any;
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+public dashboardTab = '0';
+public userSettingsTab = '0';
 
   constructor(private pService: NgProgressService, private location: Location, private _routeParams: ActivatedRoute, private router: Router,
     private _DomSanitizationService: DomSanitizer, private localStorageService: LocalStorageService,
     private userServiceObj: UserService, private sharedServiceObj: SharedService,
-    private url: LocationStrategy, private dialogService: DialogService) { }
+    private url: LocationStrategy, private dialogService: DialogService, private ngZone: NgZone) { }
 
   ngOnInit() {
     if (this.localStorageService.get('loggedId') == null) {
-      //const loggedIn = this.localStorageService.get('loggedId').toString();
+      this.ngZone.run(() => {
       this.router.navigate(['home']);
+      });
     }
+  }
+  setDashboardTabs(dashboardType: string): void {
+      this.dashboardTab = dashboardType;
+  }
+  setSettingsTabs(settingsType: string): void {
+    this.userSettingsTab = settingsType;
   }
 
 }

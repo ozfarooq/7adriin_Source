@@ -1,7 +1,7 @@
 <app-header></app-header>
 <div class="container">
     <div class="row">
-        <div class="join"><h2>Login To 7Adriin</h2></div>
+        <div class="join"><h2>Login To Gafah</h2></div>
         <form class="form-signin">
             <div class="slogo"><img src="assets/img/slogo.png" /></div>
             <div class="social-box">
@@ -10,9 +10,9 @@
                         <button class="btn facebookbtn" (click)="onFacebookLoginClick();">
                             <i class="fa fa-facebook" ></i>    Continue with Facebook
                         </button>
-                        <a href="#" class="btn googlebtn">
-                            <i class="fa fa-google-plus" ></i>    Continue with Google
-                        </a>
+                        <button #btnGoogle class="btn googlebtn" id="btnGoogleId">
+                            <i class="fa fa-google-plus"></i>    Continue with Google
+                        </button>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@
             <div class="login-footer">
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
-                        Not a member yet? <a href="javascript:void(0)"  routerLink="/register">Join now</a>
+                        Not a member yet? <a href="javascript:void(0)" routerLink="/register">Join as Client</a>
                     </div>
                 </div>
 

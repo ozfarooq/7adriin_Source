@@ -12,16 +12,22 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a href="#" class="logohome"></a>
+                        <a class="logocls" href="javascript:void(0)" routerLink="/home"></a>
                     </div>
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" *ngIf="!userLoggedIn">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#">how it works</a></li>
                             <li><a href="javascript:void(0)" routerLink="/login">login</a></li>
-                            <li><a href="javascript:void(0)"  routerLink="/register">sign up</a></li>
+                            <li><a href="javascript:void(0)"  routerLink="/register">sign up as client</a></li>
                             
-                            <li><a href="javascript:void(0)" routerLink="/create-project" class="otcbtn" >POST A PROJECT</a></li>
+                            <!--<li><a href="javascript:void(0)" routerLink="/create-project" class="otcbtn" >POST A PROJECT</a></li>-->
+                          <li>
+                            <select class="langdropdown" [(ngModel)]="selectedLanguage" name="selectedLanguage" (ngModelChange)="changeSelectedLanguage($event)">
+                              <option value='1'>English</option>
+                              <option value='2'>Arabic</option>
+                            </select>
+                          </li>
+
                         </ul>
 
                     </div><!-- /.navbar-collapse -->
@@ -38,23 +44,23 @@
 
     <!--======= HOME MAIN SLIDER =========-->
     <span class="app-mockup hidden-sm hidden-xs fadeInRight animated" data-wow-offset="10" data-wow-duration="1.5s">
-        <img alt="" src="assets/img/app-screens.png" />
+        <img alt="" src="assets/img/headergirl.png" />
 
     </span>
     <div class="display-table">
         <div class="table-cell">
             <div class="container">
                 <div class="col-md-6 ptb-115 sm-no-padding">
-                    <h2><strong>Hire the Freelancer</strong></h2>
-                    <h1><strong>Getting a job done has never been easy.</strong></h1>
+                    <h2><strong>Lorem ipsum dolor sit amet</strong></h2>
+                    <h1><strong>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore </strong></h1>
 
-                    <div>
+                    <!--<div>
                         <div class="pleft col-md-10 search">
                             <input type="text" placeholder="Type here to Search">
 
                             <button type="button" style="margin-left: -15px" class="btn btn-search" (click)="searchProject()"> SEARCH</button>
                         </div>
-                    </div>
+                    </div>-->
                     </div>
                   
                 </div>
@@ -76,27 +82,27 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="#" class="logoclsmob"></a>
+                    <a class="logoclsmob" href="javascript:void(0)" routerLink="/home"></a>
 
-                    <app-simple-search></app-simple-search>
+                    <!--<app-simple-search></app-simple-search>-->
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <div class="container" *ngIf="urlToUse=='login'">
-                        <a href="javascript:void(0)" class="logocls"></a>
+                        <a class="logocls" href="javascript:void(0)" routerLink="/home"></a>
                         <ul class="nav navbar-nav navbar-right">
                             <!--<li><a href="javascript:void(0)"  routerLink="/register">Become a Seller</a></li>-->
                             
                             <li><a href="javascript:void(0)" routerLink="/login">Sign In</a></li>
-                            <li><a href="javascript:void(0)"  routerLink="/register" class="otcbtn1">Join</a></li>
+                            <li><a href="javascript:void(0)"  routerLink="/register" class="otcbtn1">Join as Client</a></li>
                             
                         </ul>
                     </div>
                     <div class="container" *ngIf="urlToUse!='login'&&urlToUse!='home'">
-                            <a href="#" class="logocls"></a>
+                            <a class="logocls" href="javascript:void(0)" routerLink="/home"></a>
                             <ul class="nav navbar-nav navbar-right">
                                 <!--<li><a href="javascript:void(0)"  routerLink="/register">Become a Seller</a></li>-->
-                                <li class="messages-trigger js-mark" *ngIf="userLoggedIn==true">
+                                <!--<li class="messages-trigger js-mark" *ngIf="userLoggedIn==true">
                                     <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Messages</a>
                                     <section class="dropdown-menu hidden-xs">
                                         <div>
@@ -256,21 +262,23 @@
                                             <a href="javascript:void(0)" routerLink="/my-notifications" class="btn-see-all">See All in Notifications</a>
                                         </footer>
                                     </section>
-                                </li>
-                                <li *ngIf="userLoggedIn==true"><a href="javascript:void(0)">Saved</a></li>
-                                <li *ngIf="userLoggedIn==true"><a href="javascript:void(0)">Order</a></li>
+                                </li>-->
+                                <!--<li *ngIf="userLoggedIn==true"><a href="javascript:void(0)">Saved</a></li>
+                                <li *ngIf="userLoggedIn==true"><a href="javascript:void(0)">Order</a></li>-->
                                 <li *ngIf="userLoggedIn==true">
                                     <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="topuserpic"><img alt="" src="assets/img/profile-photo.jpg" /></span>
-                                        <span class="useronline-status offline"></span>
+                                        <span class="useronline-status online"></span>
                                     </a>
                                     <ul class="dropdown-menu">
-                                        <li><a href="javascript:void(0)" routerLink="/my-profile">My Profile</a></li>
+                                        <li><a href="javascript:void(0)" routerLink="/my-profile">Profile</a></li>
+                                        <li><a href="javascript:void(0)" routerLink="/dashboard">New Proposal</a></li>
+                                        <li><a href="javascript:void(0)" routerLink="/dashboard">Current Awarded Project</a></li>
                                         <li><a href="javascript:void(0)" routerLink="/dashboard">Dashoard</a></li>
-                                        <li><a href="javascript:void(0)" routerLink="/my-project">Manage Projects</a></li>
+                                        <!--<li><a href="javascript:void(0)" routerLink="/my-project">Manage Projects</a></li>
                                         <li><a href="javascript:void(0)" routerLink="/create-project">Post Project</a></li>
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="javascript:void(0)" routerLink="/my-settings">Settings</a></li>
+                                        <li><a href="javascript:void(0)" routerLink="/my-settings">Settings</a></li>-->
                                         <li><a href="javascript:void(0)">Help</a></li>
                                         <li role="separator" class="divider"></li>
                                         <li><a href="javascript:void(0)" (click)="userLoggout()">Logout</a></li>
@@ -279,7 +287,7 @@
                             </ul>
                         </div>
                     <div class="clearfix"></div>
-                    <div class="cbprow">
+                    <!--<div class="cbprow">
                         <div class="container">
                             <nav id="cbp-hrmenu" class="cbp-hrmenu">
                                 <ul>
@@ -289,7 +297,7 @@
                                                     <div class="cbp-hrsub-inner">
                                                         <div>
                                                             <ul>
-                                                                <li><a href="javascript:void(0)" *ngFor="let subCategory of filteredSubCategoryList" routerLink="/project-listing">{{subCategory.name}}</a></li>
+                                                                <li><a *ngFor="let subCategory of filteredSubCategoryList" href="javascript:void(0)" routerLink="/project-listing">{{subCategory.name}}</a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -298,7 +306,7 @@
                                 </ul>
                             </nav>
                         </div>
-                    </div>
+                    </div>-->
 
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

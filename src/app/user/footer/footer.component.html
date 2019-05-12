@@ -7,12 +7,14 @@
                     <div class="widget">
                         <h3>Company</h3>
                         <ul>
-                            <li><a href="javascript:void(0)" (click)="loadContentPage()">FAQs</a></li>
-                            <li><a href="javascript:void(0)" (click)="loadContentPage()">For The Clinic</a></li>
-                            <li><a href="javascript:void(0)" (click)="loadContentPage()">Download</a></li>
-                            <li><a href="javascript:void(0)" (click)="loadContentPage()">Access Your Super Steps</a></li>
-                            <li><a href="javascript:void(0)" (click)="loadContentPage()">Career</a></li>
-                            <li><a href="javascript:void(0)" (click)="loadContentPage()">Privacy Policy</a></li>
+                            <li><a href="javascript:void(0)" (click)="loadContentPage('about-us')">About Us</a></li>
+                            <li><a href="javascript:void(0)" (click)="loadContentPage('careers')">Careers</a></li>
+                            <li><a href="javascript:void(0)" (click)="loadContentPage('press')">Press</a></li>
+                            <li><a href="javascript:void(0)" (click)="loadContentPage('faq')">FAQ</a></li>
+                            <li><a href="javascript:void(0)" (click)="loadContentPage('trust-safety')">Trust & Safety</a></li>
+                            <li><a href="javascript:void(0)" (click)="loadContentPage('terms-service')">Terms of Service</a></li>
+                            <li><a href="javascript:void(0)" (click)="loadContentPage('privacy-policy')">Privacy Policy</a></li>
+                            <li><a href="javascript:void(0)" (click)="loadContentPage('partnership')">Partnership</a></li>
                         </ul>
 
                     </div>
@@ -20,43 +22,39 @@
 
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Quick Links</h3>
+                        <h3>Support</h3>
                         <ul>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">FAQs</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">For The Clinic</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Download</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Access Your Super Steps</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Career</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Privacy Policy</a></li>
+                                <li><a href="javascript:void(0)" (click)="loadContentPage('help-client')">Help & Support - Client</a></li>
+                                <li><a href="javascript:void(0)" (click)="loadContentPage('help-freelancers')">Help & Support - Freelancers</a></li>
                             </ul>
 
                     </div>
                 </div><!--/.col-md-3-->
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Quick Links</h3>
+                        <h3>Categories</h3>
                         <ul>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">FAQs</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">For The Clinic</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Download</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Access Your Super Steps</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Career</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Privacy Policy</a></li>
+                                <li *ngFor="let category of allCategoryList">
+                                    <a href="javascript:void(0)"  routerLink="/project-listing">{{category.name}}</a>
+                                </li>
                             </ul>
-
                     </div>
                 </div><!--/.col-md-3-->
 
                 <div class="col-md-3 col-sm-6">
                     <div class="widget">
-                        <h3>Resources</h3>
+                        <h3>How it works</h3>
+                    </div>
+                   
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="widget">
+                        <h3>Community</h3>
                         <ul>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">FAQs</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">For The Clinic</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Download</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Access Your Super Steps</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Career</a></li>
-                                <li><a href="javascript:void(0)" (click)="loadContentPage()">Privacy Policy</a></li>
+                                <li><a href="javascript:void(0)" (click)="loadContentPage('forum')">Forum</a></li>
+                                <li><a href="javascript:void(0)" (click)="loadContentPage('blogs')">Blogs</a></li>
+                                <li><a href="javascript:void(0)" (click)="loadContentPage('events')">Events</a></li>
+                                <li><a href="javascript:void(0)" routerLink="/register/0">Join as Freelancer</a></li>
                             </ul>
 
 
@@ -76,7 +74,7 @@
                 <div>
                     <p>
                         2018© All Rights Reserved. &nbsp;
-                        <a href="javascript:void(0)" (click)="loadContentPage()">Privacy Policy</a> | <a href="javascript:void(0)" (click)="loadContentPage()">Terms of Service</a> | <a href="javascript:void(0)" (click)="loadContentPage()">Sitemap</a>
+                        <a href="javascript:void(0)" (click)="loadContentPage('privacy-policy')">Privacy Policy</a> | <a href="javascript:void(0)" (click)="loadContentPage('terms-service')">Terms of Service</a> | <a href="javascript:void(0)" (click)="loadContentPage('site-map')">Sitemap</a>
                     </p>
                 </div><hr />
                 <div class="col-md-10 socialmedia">
@@ -114,10 +112,7 @@
                     </ul>
                 </div>
                 <div class="col-md-2">
-                        <select [(ngModel)]="selectedLanguage" name="selectedLanguage" (ngModelChange)="changeSelectedLanguage($event)">
-                                <option value='1'>English</option>
-                                <option value='2'>Arabic</option>
-                        </select>
+
                     <!--<select><option>English</option><option>Arabic</option></select>-->
                 </div>
             </div>
